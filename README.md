@@ -23,7 +23,7 @@
 
 Casas e fazendas: https://opengameart.org/content/lpc-medieval-village-decorations
 
-Knight (Cavalo): https://opengameart.org/content/simple-knight, https://opengameart.org/content/knight-swinging-sword
+Knight (Cavalo): https://opengameart.org/content/simple-knight, https://opengameart.org/content/knight-swinging-sword, https://opengameart.org/content/dark-soldier-on-a-horse-valyria-tear, https://kiendko.itch.io/medieval-pixel-knight
 
 Bishop (Bispo): https://opengameart.org/content/animated-cleric, https://opengameart.org/content/blue-cleric
 
