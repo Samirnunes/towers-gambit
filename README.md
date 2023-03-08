@@ -21,10 +21,15 @@ Definições de Arte:
 
 - Conjunto de Sprites: 
 Casas e fazendas: https://opengameart.org/content/lpc-medieval-village-decorations
+
 Knight (Cavalo): https://opengameart.org/content/simple-knight, https://opengameart.org/content/knight-swinging-sword
+
 Bishop (Bispo): https://opengameart.org/content/animated-cleric, https://opengameart.org/content/blue-cleric
+
 Tower (Torre): https://opengameart.org/content/tower-defense-prototyping-assets-4-monsters-some-tiles-a-background-image
+
 Pawn (Peão): https://opengameart.org/content/peasant
+
 Queen (Dama): 
 
 - Conjunto de Músicas:
