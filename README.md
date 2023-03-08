@@ -20,6 +20,7 @@ Pré-projetos:
 Definições de Arte:
 
 - Conjunto de Sprites: 
+
 Casas e fazendas: https://opengameart.org/content/lpc-medieval-village-decorations
 
 Knight (Cavalo): https://opengameart.org/content/simple-knight, https://opengameart.org/content/knight-swinging-sword
