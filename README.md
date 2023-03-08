@@ -6,7 +6,7 @@
  
 - Temática: Xadrez/Medieval
 
- Tabuleiro grande com florestas, castelos, casas, discretizado, vários caminhos em diversas direções, construímos nossos aliados.
+ - Formato: Tabuleiro grande com florestas, castelos, casas, discretizado, vários caminhos em diversas direções, construímos nossos aliados.
  
 - Personagens/objetos jogáveis: torres (ataca com flechas na horizontal e vertical), peões (colocados nos caminhos, vão avançando e atacando os inimigos), cavalos (cavalo vai pulando e dá dano em área - ou poder ou torre com cooldown grande), bispos (atacam a distância na diagonal com projéteis) e dama (seria nossa "heroína" e teria o poder de tirar 1 vida dos inimigos numa área específica em todas as direções).
  
