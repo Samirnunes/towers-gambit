@@ -1,6 +1,6 @@
 # Projeto de CSI-22: Jogo com Pygame e POO (Programação Orientada a Objetos)
 
-### Pré-projetos:
+### Pré-projeto:
 
 - Formato: Tower Defense
  
