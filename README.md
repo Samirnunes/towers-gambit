@@ -1,6 +1,6 @@
 # Projeto de CSI-22: Jogo com Pygame e POO (Programação Orientada a Objetos)
 
-Pré-projetos:
+### Pré-projetos:
 
 - Formato: Tower Defense
  
@@ -17,7 +17,7 @@ Pré-projetos:
 - Objetivo: defender o rei no centro do tabuleiro. O rei tem uma quantidade definida de vidas.
 
  
-Definições de Arte:
+### Definições de Arte:
 
 - Conjunto de Sprites: 
 
@@ -35,7 +35,7 @@ Queen (Dama):
 
 - Conjunto de Músicas:
 
-Links com Assets Gratuitos: 
+### Links com Assets Gratuitos: 
 
 - https://opengameart.org/
 - https://www.gameart2d.com/
