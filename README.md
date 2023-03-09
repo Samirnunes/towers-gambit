@@ -33,6 +33,8 @@ Pawn (Peão): https://opengameart.org/content/peasant
 
 Queen (Dama): 
 
+King (Rei): https://luizmelo.itch.io/medieval-king-pack-2
+
 - Conjunto de Músicas:
 
 ### Links com Assets Gratuitos: 
