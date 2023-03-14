@@ -19,21 +19,15 @@
  
 ### Definições de Arte:
 
-- Conjunto de Sprites: 
+- Conjunto de Sprites: https://dani-maccari.itch.io/pixel-chess, https://bzgamedev.itch.io/pixel-art-chess-set (animado)
 
-Casas e fazendas:
+Knight (Cavalo); Bishop (Bispo); Tower (Torre); Pawn (Peão); Queen (Dama); King (Rei).
 
-Knight (Cavalo):
+Arrow: https://kenam0.itch.io/arrows-pack
 
-Bishop (Bispo): 
+Magic Bullet: https://bdragon1727.itch.io/fire-pixel-bullet-16x16
 
-Tower (Torre): 
-
-Pawn (Peão): 
-
-Queen (Dama): 
-
-King (Rei): 
+Terrain: https://grumpydiamond.itch.io/small-grass-tileset-16x16
 
 - Conjunto de Músicas:
 
