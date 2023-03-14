@@ -21,19 +21,19 @@
 
 - Conjunto de Sprites: 
 
-Casas e fazendas: https://opengameart.org/content/lpc-medieval-village-decorations
+Casas e fazendas:
 
-Knight (Cavalo): https://opengameart.org/content/simple-knight, https://opengameart.org/content/knight-swinging-sword, https://opengameart.org/content/dark-soldier-on-a-horse-valyria-tear, https://kiendko.itch.io/medieval-pixel-knight
+Knight (Cavalo):
 
-Bishop (Bispo): https://opengameart.org/content/animated-cleric, https://opengameart.org/content/blue-cleric
+Bishop (Bispo): 
 
-Tower (Torre): https://opengameart.org/content/tower-defense-prototyping-assets-4-monsters-some-tiles-a-background-image
+Tower (Torre): 
 
-Pawn (Peão): https://opengameart.org/content/peasant
+Pawn (Peão): 
 
 Queen (Dama): 
 
-King (Rei): https://luizmelo.itch.io/medieval-king-pack-2
+King (Rei): 
 
 - Conjunto de Músicas:
 
