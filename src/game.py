@@ -26,14 +26,8 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-                    
-                # pos = pygame.mouse.get_pos()
-                
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    # self.clicks.append(pos)
-                    # print(self.clicks)
-                    pass
-            self.draw()
+
+            self.draw() #background
             self.enemies[0].draw(self.window)
         
         pygame.quit()
