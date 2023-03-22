@@ -1,5 +1,5 @@
-import pygame
 import os
+import pygame
 
 class Game:
     def __init__(self):
@@ -10,8 +10,7 @@ class Game:
         self.enemies = []
         self.lives = 5
         self.money = 200
-        self.bg = pygame.image.load(os.path.join(os.path.join('game_assets', 'pixel_chess'), 
-                                                 os.path.join('boards', 'board_plain_04_modified.png')))
+        self.bg = pygame.image.load(os.path.join(os.path.join('game_assets', 'pixel_chess','boards', 'board_plain_04_modified.png')))
         self.bg = pygame.transform.scale(self.bg, (700, 700))
         
     def run(self):
