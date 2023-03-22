@@ -64,5 +64,5 @@ class Enemy:
         '''
         self.health -= damage
           
-    def dead(self):
-        return self.health <= 0
+    def alive(self):
+        return self.health > 0
