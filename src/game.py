@@ -1,8 +1,8 @@
-import os
 import pygame
 from enemy import Enemy
+from map import FirstMap
 
-class Game:
+class Game():
     def __init__(self):
         self.width = 700
         self.height = 700
@@ -11,14 +11,16 @@ class Game:
         self.enemies = []
         self.lives = 5
         self.money = 200
-        self.bg = pygame.image.load(os.path.join(os.path.join('game_assets', 'pixel_chess','boards', 'board_plain_04_modified.png')))
-        self.bg = pygame.transform.scale(self.bg, (self.width, self.height))
-        # self.clicks = []
-        
+        self.background = None
+
+    def set_background(self, map):
+        self.background = map.get_background(self.width, self.height)
+
     def run(self):
         running = True
         clock = pygame.time.Clock()
         
+        self.set_background(FirstMap())
         self.create_enemy()
         
         while running:
@@ -27,15 +29,13 @@ class Game:
                 if event.type == pygame.QUIT:
                     running = False
 
-            self.draw() #background
+            self.draw()
             self.enemies[0].draw(self.window)
         
         pygame.quit()
         
     def draw(self):
-        self.window.blit(self.bg, (0, 0))
-        # for p in self.clicks:
-        #     pygame.draw.circle(self.window, (255, 0, 0), (p[0], p[1]), 5, 0)
+        self.window.blit(self.background, (0, 0))
         pygame.display.update()
         
     def create_enemy(self):

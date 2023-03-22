@@ -1,7 +1,7 @@
 import os
 import pygame
 
-class Enemy:
+class Enemy():
     imgs = [pygame.image.load(os.path.join(os.path.join('game_assets', 'cards','PNG', 'French_cards', 'French-Clover-3.png')))]
     
     def __init__(self, x, y, width, height):
@@ -12,23 +12,7 @@ class Enemy:
         self.animation_count = 0
         self.health = 2
         self.velocity = 1
-        self.path = [(5, 185), 
-                     (150, 185), 
-                     (150, 285), 
-                     (65, 285), 
-                     (65, 455), 
-                     (150, 455), 
-                     (150, 545), 
-                     (110, 545), 
-                     (110, 635), 
-                     (440, 635), 
-                     (440, 550), 
-                     (315, 550), 
-                     (315, 460), 
-                     (530, 460), 
-                     (530, 590), 
-                     (615, 590), (615, 375), (650, 375), (650, 200), (610, 200), (610, 155), (525, 155), (525, 110), (350, 110), 
-                     (359, 195), (395, 195), (395, 330)]
+        self.path = None
     
     def draw(self, window):
         '''
@@ -42,7 +26,7 @@ class Enemy:
             
         window.blit(img, (self.x, self.y))
         pygame.display.update()
-        # self.animation_count += 1
+        self.animation_count += 1
         
     def collide(self, other_x, other_y, other_width, other_height):
         '''
@@ -65,11 +49,18 @@ class Enemy:
           return True
         
         return False
+    
+    def set_path(self, map):
+        '''
+        Sets enemy's path based on a map.
+        '''
+        self.path = map.get_path()
         
     def move(self):
         '''
         Moves enemy.
         '''
+
         
         
     
