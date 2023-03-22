@@ -12,7 +12,7 @@ class Game:
         self.money = 200
         self.bg = pygame.image.load(os.path.join(os.path.join('game_assets', 'pixel_chess','boards', 'board_plain_04_modified.png')))
         self.bg = pygame.transform.scale(self.bg, (self.width, self.height))
-        self.clicks = []
+        # self.clicks = []
         
     def run(self):
         running = True
@@ -26,14 +26,15 @@ class Game:
                 pos = pygame.mouse.get_pos()
                 
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    self.clicks.append(pos)
-                    print(pos)
+                    # self.clicks.append(pos)
+                    # print(self.clicks)
+                    pass
             self.draw()
         
         pygame.quit()
         
     def draw(self):
         self.window.blit(self.bg, (0, 0))
-        for p in self.clicks:
-            pygame.draw.circle(self.window, (255, 0, 0), (p[0], p[1]), 5, 0)
+        # for p in self.clicks:
+        #     pygame.draw.circle(self.window, (255, 0, 0), (p[0], p[1]), 5, 0)
         pygame.display.update()
