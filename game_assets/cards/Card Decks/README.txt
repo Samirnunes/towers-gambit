@@ -1,3 +1,0 @@
-Made by Treemolo.
-
-Enjoy.

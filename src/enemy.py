@@ -1,14 +1,14 @@
-import pygame
 import os
+import pygame
 
 class Enemy:
-    imgs = []
+    imgs = [pygame.image.load(os.path.join(os.path.join('game_assets', 'cards','PNG', 'French_cards', 'French-Clover-3.png')))]
     
     def __init__(self, x, y, width, height):
         self.x = x
         self.y = y
-        self.width = 0
-        self.height = 0
+        self.width = width
+        self.height = height
         self.animation_count = 0
         self.health = 2
         self.velocity = 1
@@ -21,13 +21,15 @@ class Enemy:
         '''
         Draws the enemy with the given images.
         '''
-        self.animation_count += 1
         img = self.imgs[self.animation_count]
+        img = pygame.transform.scale(img, (self.width, self.height))
         
         if self.animation_count >= len(self.imgs):
             self.animation_count = 0
             
         window.blit(img, (self.x, self.y))
+        pygame.display.update()
+        # self.animation_count += 1
         
     def collide(self, other_x, other_y, other_width, other_height):
         '''
