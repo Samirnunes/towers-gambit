@@ -1,6 +1,7 @@
 import pygame
 from enemy import Enemy
 from map import FirstMap
+from constants import *
 
 class Game():
     def __init__(self):
@@ -20,17 +21,20 @@ class Game():
         running = True
         clock = pygame.time.Clock()
         
-        self.set_background(FirstMap())
-        self.create_enemy()
+        map = FirstMap()
+        self.set_background(map)
+        self.create_enemy(map, 25, 25)
         
         while running:
-            clock.tick(30)
+            clock.tick(1/ITERATION_TIME)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
 
             self.draw()
             self.enemies[0].draw(self.window)
+            self.enemies[0].move()
+            self.enemies[0].correct_destination()
         
         pygame.quit()
         
@@ -38,5 +42,7 @@ class Game():
         self.window.blit(self.background, (0, 0))
         pygame.display.update()
         
-    def create_enemy(self):
-        self.enemies.append(Enemy(5 ,185, 25, 25))
+    def create_enemy(self, map, width, height):
+        new_enemy = Enemy(width, height)
+        new_enemy.set_on_map(map)
+        self.enemies.append(new_enemy)
