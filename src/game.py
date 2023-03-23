@@ -1,5 +1,5 @@
 import pygame
-from enemy import Enemy
+from enemy import *
 from map import FirstMap
 from constants import *
 
@@ -23,7 +23,7 @@ class Game():
         
         map = FirstMap()
         self.set_background(map)
-        self.create_enemy(map, 25, 25)
+        self.create_enemy(CardSeven, map, 25, 25, Suits.SPADES)
         
         while running:
             clock.tick(1/ITERATION_TIME)
@@ -42,7 +42,7 @@ class Game():
         self.window.blit(self.background, (0, 0))
         pygame.display.update()
         
-    def create_enemy(self, map, width, height):
-        new_enemy = Enemy(width, height)
+    def create_enemy(self, enemy_class, map, width, height, suit):
+        new_enemy = enemy_class(width, height, suit)
         new_enemy.set_on_map(map)
         self.enemies.append(new_enemy)

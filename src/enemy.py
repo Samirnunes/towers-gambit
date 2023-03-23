@@ -2,18 +2,26 @@ import os
 import pygame
 import math
 from constants import *
+from enum import Enum
+
+class Suits(Enum):
+
+    SPADES = 0
+    CLUBS = 1
+    HEARTS = 2
+    DIAMONDS = 3
 
 class Enemy():
-    imgs = [pygame.image.load(os.path.join(os.path.join('game_assets', 'cards','PNG', 'French_cards', 'French-Clover-3.png')))]
     
     def __init__(self, width, height):
         self.x = None
         self.y = None
+        self.img = None
+        self.suit = None
         self.width = width
         self.height = height
-        self.animation_count = 0
-        self.health = 2
-        self.velocity = 300
+        self.health = None
+        self.velocity = None
         self.path = None
         self.path_index = None
     
@@ -21,16 +29,12 @@ class Enemy():
         '''
         Draws the enemy with the given images.
         '''
-        img = self.imgs[self.animation_count]
+        img = self.img
         img = pygame.transform.scale(img, (self.width, self.height))
-        
-        if self.animation_count >= len(self.imgs):
-            self.animation_count = 0
             
         window.blit(img, (self.x, self.y))
         pygame.display.update()
-        #self.animation_count += 1
-        
+
     def collide(self, other_x, other_y, other_width, other_height):
         '''
         Returns if position has hit enemy.
@@ -116,3 +120,110 @@ class Enemy():
           
     def alive(self):
         return self.health > 0
+    
+    @staticmethod
+    def determine_velocity_based_on_suit(suit):
+        velocity = 0
+        if suit == Suits.SPADES:
+            velocity = 10
+        elif suit == Suits.CLUBS:
+            velocity = 20
+        elif suit == Suits.HEARTS:
+            velocity = 30
+        elif suit == Suits.DIAMONDS:
+            velocity = 40
+        return velocity
+    
+    @staticmethod
+    def determine_image_based_on_suit_and_number(suit, number):
+        png_str = ''
+        if suit == Suits.SPADES:
+            png_str = 'French-' + 'Spade' + '-' + number + '.png'
+        elif suit == Suits.CLUBS:
+            png_str = 'French-' + 'Clover' + '-' + number + '.png'
+        elif suit == Suits.HEARTS:
+            png_str = 'French-' + 'Heart' + '-' + number + '.png'
+        elif suit == Suits.DIAMONDS:
+            png_str = 'French-' + 'Diamond' + '-' + number + '.png'
+        return pygame.image.load(os.path.join('game_assets', 'cards', 'PNG', 'French_cards', png_str)) 
+        
+    
+class CardAce(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 1
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, 'A')
+
+class CardTwo(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 2
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardThree(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 3
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardFour(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 4
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardFive(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 5
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+class CardSix(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 6
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardSeven(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 7
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardEight(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 8
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardNine(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 9
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
+class CardTen(Enemy):
+    def __init__(self, width, height, suit):
+        super().__init__(width, height)
+        self.health = 10
+        self.suit = suit
+        self.velocity = Enemy.determine_velocity_based_on_suit(suit)
+        self.img = Enemy.determine_image_based_on_suit_and_number(suit, str(self.health))
+
