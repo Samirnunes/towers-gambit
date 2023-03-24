@@ -1,5 +1,7 @@
 import pygame
+from entity import *
 from enemy import *
+from ally import *
 from map import FirstMap
 from constants import *
 
@@ -24,6 +26,7 @@ class Game():
         map = FirstMap()
         self.set_background(map)
         self.create_enemy_card(map, 25, 25, Suits.CLUBS, Numbers.J)
+        self.create_ally_piece(100, 50, 25, 25, Pieces.BISHOP, Color.WHITE)
         
         while running:
             clock.tick(1/ITERATION_TIME)
@@ -35,6 +38,8 @@ class Game():
             self.enemies[0].draw(self.window)
             self.enemies[0].move()
             self.enemies[0].correct_destination()
+
+            self.allies[0].draw(self.window)
         
         pygame.quit()
         
@@ -46,3 +51,8 @@ class Game():
         new_enemy = Card(width, height, suit, number)
         new_enemy.set_on_map(map)
         self.enemies.append(new_enemy)
+
+    def create_ally_piece(self, initial_x, initial_y, width, height, piece, color):
+        new_ally = Chess(width, height, piece, color)
+        new_ally.set_initial_position(initial_x, initial_y)
+        self.allies.append(new_ally)
