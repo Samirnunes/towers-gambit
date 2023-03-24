@@ -23,7 +23,7 @@ class Game():
         
         map = FirstMap()
         self.set_background(map)
-        self.create_enemy(CardSeven, map, 25, 25, Suits.SPADES)
+        self.create_enemy_card(map, 25, 25, Suits.CLUBS, Numbers.J)
         
         while running:
             clock.tick(1/ITERATION_TIME)
@@ -42,7 +42,7 @@ class Game():
         self.window.blit(self.background, (0, 0))
         pygame.display.update()
         
-    def create_enemy(self, enemy_class, map, width, height, suit):
-        new_enemy = enemy_class(width, height, suit)
+    def create_enemy_card(self, map, width, height, suit, number):
+        new_enemy = Card(width, height, suit, number)
         new_enemy.set_on_map(map)
         self.enemies.append(new_enemy)
