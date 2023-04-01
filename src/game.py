@@ -5,7 +5,7 @@ from ally import *
 from map import FirstMap
 from constants import *
 
-class Game():
+class Game:
     def __init__(self):
         self.width = 700
         self.height = 700

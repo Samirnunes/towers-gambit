@@ -1,6 +1,6 @@
 import pygame
 
-class Entity():
+class Entity:
     def __init__(self, width, height):
         self.x = None
         self.y = None

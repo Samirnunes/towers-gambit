@@ -2,7 +2,7 @@ import os
 import pygame
 
 
-class Map():
+class Map:
     background = []
     path = []
 
