@@ -88,17 +88,23 @@ class Enemy(Entity):
                     self.y = dest_y        
 
     def correct_destination(self):
+        '''
+        Corrects enemy's destination based on its position.
+        '''
         if self.path_index < len(self.path) - 1:
             if (self.x, self.y) == self.path[self.path_index + 1]:
                 self.path_index += 1
     
-    def hit(self, damage):
+    def damage(self, damage):
         '''
-        Returns if an enemy has died and for each call removes 1 HP.
+        Removes health from enemy equals to damage.
         '''
         self.health -= damage
           
     def alive(self):
+        '''
+        Returns if enemy's alive.
+        '''
         return self.health > 0
 
 class Card(Enemy):
@@ -111,6 +117,9 @@ class Card(Enemy):
             self.determine_image_based_on_suit_and_number()
 
     def determine_health_based_on_number(self):
+        '''
+        Determines card's health based on number atribute.
+        '''
         if self.number == Numbers.A:
             self.health = 1
         elif self.number == Numbers.J:
@@ -123,6 +132,9 @@ class Card(Enemy):
             self.health = int(self.number.value)
     
     def determine_velocity_based_on_suit(self):
+        '''
+        Determines card's velocity based on suit atribute.
+        '''
         if self.suit == Suits.SPADES:
             self.velocity = 10
         elif self.suit == Suits.CLUBS:
@@ -133,6 +145,9 @@ class Card(Enemy):
             self.velocity = 40
     
     def determine_image_based_on_suit_and_number(self):
+        '''
+        Determine card's image based on suit and number atributes.
+        '''
         png_str = ''
         if self.suit == Suits.SPADES:
             png_str = 'French-' + 'Spade' + '-' + self.number.value + '.png'

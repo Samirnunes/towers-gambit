@@ -39,6 +39,9 @@ class Chess(Ally):
         self.determine_image_based_on_piece_and_color()
 
     def determine_image_based_on_piece_and_color(self):
+        '''
+        Determines chess image based on piece and color atributes.
+        '''
         png_str = ''
         color_str = ''
         if self.color == Color.WHITE:

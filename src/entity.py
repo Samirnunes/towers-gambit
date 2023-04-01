@@ -11,7 +11,7 @@ class Entity:
     
     def draw(self, window):
         '''
-        Draws the enemy with the given images.
+        Draws the entity in the given Pygame's window.
         '''
         img = self.imgs[self.animation_count]
         img = pygame.transform.scale(img, (self.width, self.height))
@@ -24,7 +24,7 @@ class Entity:
 
     def collide(self, other_x, other_y, other_width, other_height):
         '''
-        Returns if position has hit enemy.
+        Returns if position has hit the entity.
         '''
         rect1_left = self.x - self.width/2
         rect1_right = self.x + self.width/2
