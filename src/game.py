@@ -29,7 +29,7 @@ class Game:
         running = True
         clock = pygame.time.Clock()
         
-        map = Map(MapBackgrounds.BACKGROUND1, MapPaths.PATH1)
+        map = Map(MapShapes.SHAPE1)
         self.set_background(map)
         self.create_enemy_card(map, 25, 25, Suits.CLUBS, Numbers.J)
         self.create_ally_piece(100, 50, 25, 25, Pieces.BISHOP, Color.WHITE)
