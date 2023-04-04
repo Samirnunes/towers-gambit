@@ -7,9 +7,9 @@ from constants import *
 
 class Game:
     def __init__(self):
-        self.width = 700
-        self.height = 700
-        self.window = pygame.display.set_mode((self.width, self.height))
+        self.width = WIDTH
+        self.height = HEIGHT
+        self.window = pygame.display.set_mode((WIDTH, HEIGHT))
         self.allies = []
         self.enemies = []
         self.lives = 5
@@ -35,7 +35,7 @@ class Game:
         self.create_ally_piece(100, 50, 25, 25, Pieces.BISHOP, Color.WHITE)
         
         while running:
-            clock.tick(1/ITERATION_TIME)
+            clock.tick(FRAMERATE)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False

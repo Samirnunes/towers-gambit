@@ -65,7 +65,7 @@ class Enemy(Entity):
         if self.path_index < len(self.path) - 1:
             dest_x = self.path[self.path_index + 1][0]
             dest_y = self.path[self.path_index + 1][1]
-            delta = self.velocity * ITERATION_TIME
+            delta = self.velocity / FRAMERATE
             if dest_x > self.x:
                 self.x += delta
                 self.x = math.ceil(self.x)
@@ -158,4 +158,4 @@ class Card(Enemy):
         elif self.suit == Suits.DIAMONDS:
             png_str = 'French-' + 'Diamond' + '-' + self.number.value + '.png'
         self.animation_count = 0
-        self.imgs = [pygame.image.load(os.path.join('game_assets', 'cards', 'PNG', 'French_cards', png_str))]
+        self.imgs = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]

@@ -6,7 +6,7 @@ class MapShapes(Enum):
 
     SHAPE1 = (pygame.image.load(os.path.join
                                 (os.path.join
-                                 ('game_assets', 'pixel_chess','boards', 'board_plain_04_modified.png'))),
+                                 ('assets', 'pixel_chess','boards', 'board_plain_04_modified.png'))),
              [(5, 185), 
             (150, 185), (150, 285), (65, 285), (65, 455), (150, 455), 
             (150, 545), (110, 545), (110, 635), (440, 635), (440, 550), 

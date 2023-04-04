@@ -51,7 +51,7 @@ class Chess(Ally):
         png_str = color_str + '_' + self.piece.value + '.png'
 
         self.animation_count = 0
-        self.imgs = [pygame.image.load(os.path.join('game_assets', 'pixel_chess', '16x32_pieces', png_str))]
+        self.imgs = [pygame.image.load(os.path.join('assets', 'pixel_chess', '16x32_pieces', png_str))]
 
         
 
