@@ -36,10 +36,11 @@ class Game:
                 if event.type == pygame.QUIT:
                     running = False
 
+            mouse_pos = pygame.mouse.get_pos()
+
             self.entities.update()
             self.entities.draw()
-
-            self.player.display(self.window)
+            self.player.display_user_interface(self.window, mouse_pos)
 
             if (i == 100):
                 Card(self, (CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.J)
