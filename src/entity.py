@@ -50,10 +50,10 @@ class Entity:
         '''
         Returns if position has hit the entity.
         '''
-        rect1_left = self.x - self.width/2
-        rect1_right = self.x + self.width/2
-        rect1_top = self.y + self.height/2
-        rect1_bottom = self.y - self.height/2
+        rect1_left = self.pos[0] - self.size[0]/2
+        rect1_right = self.pos[0] + self.size[0]/2
+        rect1_top = self.pos[1] + self.size[1]/2
+        rect1_bottom = self.pos[1] - self.size[1]/2
         
         rect2_left = other_x - other_width/2
         rect2_right = other_x + other_width/2

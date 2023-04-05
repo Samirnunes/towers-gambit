@@ -38,13 +38,10 @@ class Enemy(Entity):
         self.path_index = 0
         self.pos = list(self.path[0])
         game.enemies.append(self)
-
+    
     def update(self):
         super().update()
-        self.move()
-        if not self.alive():
-            self.kill()
-    
+
     def move(self):
         '''
         Moves enemy in a iteration of the game loop.
@@ -89,8 +86,6 @@ class Enemy(Entity):
         return self.health > 0 and self.path_index != len(self.path) - 1
     
         
-        
-
 class Card(Enemy):
     def __init__(self, game, size, suit, number):
             super().__init__(game, size)
@@ -100,6 +95,12 @@ class Card(Enemy):
             self.determine_velocity_based_on_suit()
             self.determine_image_based_on_suit_and_number()
             self.starting_health = self.health
+
+    def update(self):
+        super().update()
+        self.move()
+        if not self.alive():
+            self.kill()
 
     def determine_health_based_on_number(self):
         '''
