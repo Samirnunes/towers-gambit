@@ -41,12 +41,21 @@ class Game:
                     running = False
 
             self.draw()
-            self.enemies[0].draw(self.window)
-            self.enemies[0].move()
-            self.enemies[0].correct_destination()
+            for enemy in self.enemies:
+                enemy.draw(self.window)
+                enemy.move()
+                enemy.correct_destination()
 
-            self.allies[0].draw(self.window)
-        
+            for ally in self.allies:
+                ally.draw(self.window)
+                
+            #add collisions here
+            
+            for enemy in self.enemies:
+                if not enemy.alive():
+                    enemy.kill(self)
+                    self.enemies.remove(enemy)
+                    
         pygame.quit()
         
     def draw(self):
