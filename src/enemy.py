@@ -106,6 +106,15 @@ class Enemy(Entity):
         Returns if enemy's alive.
         '''
         return self.health > 0
+    
+    def kill(self, game):
+        '''
+        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
+        '''
+        self.health = 0
+        game.add_money(10)
+        
+        
 
 class Card(Enemy):
     def __init__(self, width, height, suit, number):

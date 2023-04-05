@@ -71,3 +71,6 @@ class Game:
         new_ally = Chess(width, height, piece, color)
         new_ally.set_initial_position(initial_x, initial_y)
         self.allies.append(new_ally)
+        
+    def add_money(self, mon):
+        self.money += mon
