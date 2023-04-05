@@ -19,13 +19,13 @@ class Map:
         '''
         return self.path
 
-    def draw(self, window):
+    def draw(self, game):
         map_width, map_height = len(self.map[0]), len(self.map)
         for map_x in range(0, map_width):
             for map_y in range(0, map_height):
                 tileset_x, tileset_y = self.map[map_x][map_y]
                 tile = self.tileset[tileset_x][tileset_y]
-                window.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
+                game.window.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
 
     def load_tileset(self, filename):
         image = pygame.image.load(filename)

@@ -30,34 +30,19 @@ class Numbers(Enum):
 
 class Enemy(Entity):
     
-    def __init__(self, width, height, map):
-        super().__init__(width, height, map)
+    def __init__(self, game, width, height):
+        super().__init__(game, width, height)
         self.health = None
         self.velocity = None
-        self.path = None
-        self.path_index = None
-    
-    def set_path(self, map):
-        '''
-        Sets enemy's path based on a map.
-        '''
-        self.path = self.map.get_path()
-
-    def set_initial_position(self):
-        '''
-        Sets enemy's initial position based on its path.
-        '''
-        self.x = self.path[0][0]
-        self.y = self.path[0][1]
+        self.path = game.map.get_path()
+        self.x, self.y = self.path[0]
         self.path_index = 0
+        game.enemies.append(self)
 
-    def set_on_map(self, map):
-        '''
-        Determines enemy's path based on a map and sets it's initial position.
-        '''
-        self.set_path(map)
-        self.set_initial_position()
-        
+    def update(self):
+        super().update()
+        self.move()
+    
     def move(self):
         '''
         Moves enemy in a iteration of the game loop.
@@ -86,15 +71,10 @@ class Enemy(Entity):
                 self.y = math.floor(self.y)
                 if abs(dest_y - self.y) < delta:
                     self.y = dest_y        
-
-    def correct_destination(self):
-        '''
-        Corrects enemy's destination based on its position.
-        '''
         if self.path_index < len(self.path) - 1:
             if (self.x, self.y) == self.path[self.path_index + 1]:
                 self.path_index += 1
-    
+
     def damage(self, damage):
         '''
         Removes health from enemy equals to damage.
@@ -111,8 +91,8 @@ class Enemy(Entity):
         
 
 class Card(Enemy):
-    def __init__(self, width, height, suit, number, map):
-            super().__init__(width, height, map)
+    def __init__(self, game, width, height, suit, number):
+            super().__init__(game, width, height)
             self.suit = suit
             self.number = number
             self.determine_health_based_on_number()
@@ -162,7 +142,7 @@ class Card(Enemy):
         elif self.suit == Suits.DIAMONDS:
             png_str = 'French-' + 'Diamond' + '-' + self.number.value + '.png'
         self.animation_count = 0
-        self.imgs = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]
+        self.images = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]
         
     def kill(self, game):
         '''

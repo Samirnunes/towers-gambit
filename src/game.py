@@ -1,7 +1,10 @@
 import pygame
 from entity import *
+from entities import *
 from enemy import *
+from enemies import *
 from ally import *
+from allies import *
 from map import *
 from constants import *
 
@@ -9,8 +12,9 @@ class Game:
     def __init__(self):
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
         self.map = Map('tileset.png', 'map.png')
-        self.allies = []
-        self.enemies = []
+        self.entities = Entities()
+        self.enemies = Enemies()
+        self.allies = Allies()
         self.lives = 5
         self.money = 200
 
@@ -20,51 +24,35 @@ class Game:
         '''
         running = True
         clock = pygame.time.Clock()
+        self.window.fill((0, 0, 0))
         
-        self.map.draw(self.window)
 
-        self.create_enemy_card(25, 25, Suits.CLUBS, Numbers.J, self.map)
-        # self.create_ally_piece(100, 50, 25, 25, Pieces.BISHOP, Color.WHITE)
-        self.enemies[0].draw(self.window)
+        Card(self, 25, 25, Suits.CLUBS, Numbers.J)
+        Chess(self, 25, 25, (100, 50), Pieces.BISHOP, Color.WHITE)
         
+
         while running:
             clock.tick(FRAMERATE)
+            self.window.fill((0, 0, 0))
+            self.map.draw(self)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
 
-            for enemy in self.enemies:
-                enemy.draw(self.window)
-                enemy.move()
-                enemy.correct_destination()
+            self.entities.update()
 
-            for ally in self.allies:
-                ally.draw(self.window)
-                
+            self.entities.draw(self)
+
             #add collisions here
             
-            for enemy in self.enemies:
+            for enemy in self.enemies.get_enemies():
                 if not enemy.alive():
                     enemy.kill(self)
                     self.enemies.remove(enemy)
+
+            pygame.display.update()
                     
         pygame.quit()
-        
-    def create_enemy_card(self, width, height, suit, number, map):
-        '''
-        Creates an enemy card (only for test, must be substituted).
-        '''
-        new_enemy = Card(width, height, suit, number, map)
-        new_enemy.set_on_map(map)
-        self.enemies.append(new_enemy)
-
-    def create_ally_piece(self, initial_x, initial_y, width, height, piece, color):
-        '''
-        Creates an ally piece (only for test, must be substituted).
-        '''
-        new_ally = Chess(width, height, piece, color)
-        new_ally.set_initial_position(initial_x, initial_y)
-        self.allies.append(new_ally)
         
     def add_money(self, mon):
         self.money += mon

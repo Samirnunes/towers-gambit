@@ -20,20 +20,14 @@ class Color(Enum):
 
 class Ally(Entity):
     
-    def __init__(self, width, height):
-        super().__init__(width, height)
-
-    def set_initial_position(self, initial_x, initial_y):
-        '''
-        Sets ally's initial position.
-        '''
-        self.x = initial_x
-        self.y = initial_y
+    def __init__(self, game, width, height, point):
+        super().__init__(game, width, height)
+        self.x, self.y = point
 
 class Chess(Ally):
 
-    def __init__(self, width, height, piece, color):
-        super().__init__(width, height)
+    def __init__(self, game, width, height, point, piece, color):
+        super().__init__(game, width, height, point)
         self.piece = piece
         self.color = color
         self.determine_image_based_on_piece_and_color()
@@ -51,7 +45,7 @@ class Chess(Ally):
         png_str = color_str + '_' + self.piece.value + '.png'
 
         self.animation_count = 0
-        self.imgs = [pygame.image.load(os.path.join('assets', 'pixel_chess', '16x32_pieces', png_str))]
+        self.images = [pygame.image.load(os.path.join('assets', 'pixel_chess', '16x32_pieces', png_str))]
 
         
 
