@@ -18,6 +18,9 @@ class Entities:
     def append(self, entity):
         self.entities.append(entity)
 
+    def remove(self, entity):
+        self.entities.remove(entity)
+
 class Entity:
     def __init__(self, game, size):
         self.images = None

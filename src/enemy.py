@@ -28,24 +28,6 @@ class Numbers(Enum):
     NINE = '9'
     TEN = '10'
 
-class Enemies:
-    def __init__(self):
-        self.enemies = []
-
-    def update(self):
-        for enemy in self.enemies:
-            enemy.update()
-
-    def draw(self):
-        for enemy in self.enemies:
-            enemy.draw()
-
-    def get_enemies(self):
-        return self.enemies
-
-    def append(self, enemy):
-        self.enemies.append(enemy)
-
 class Enemy(Entity):
     
     def __init__(self, game, size):
@@ -102,7 +84,7 @@ class Enemy(Entity):
         '''
         Returns if enemy's alive.
         '''
-        return self.health > 0
+        return self.health > 0 and self.path_index != len(self.path) - 1
     
         
         
@@ -167,4 +149,6 @@ class Card(Enemy):
         '''
         self.health = 0
         money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
-        game.add_money(money)
+        game.player.add_money(money)
+        game.enemies.remove(self)
+        game.entities.remove(self)

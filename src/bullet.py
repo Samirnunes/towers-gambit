@@ -4,25 +4,6 @@ import os
 from entity import Entity
 from constants import *
 
-class Bullets:
-    def __init__(self):
-        self.bullets = []
-
-    def update(self):
-        for bullet in self.bullets:
-            bullet.update()
-
-    def draw(self):
-        for bullet in self.bullet:
-            bullet.draw()
-
-    def get_bullets(self):
-        return self.bullets
-
-    def append(self, bullet):
-        self.bullets.append(bullet)
-
-
 class Bullet(Entity):
     
     def __init__(self, game, size, pos, velocity, direction):

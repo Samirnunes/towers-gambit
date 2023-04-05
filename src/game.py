@@ -11,9 +11,9 @@ class Game:
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
         self.map = Map('tileset.png', 'map.png')
         self.entities = Entities()
-        self.enemies = Enemies()
-        self.allies = Allies()
-        self.bullets = Bullets()
+        self.enemies = Entities()
+        self.allies = Entities()
+        self.bullets = Entities()
         self.player = Player()
 
     def run(self):
@@ -25,9 +25,9 @@ class Game:
         self.window.fill((0, 0, 0))
         
 
-        Card(self, (25, 25), Suits.CLUBS, Numbers.J)
-        Chess(self, (25, 25), (24, 480), Pieces.BISHOP, Color.WHITE)
+        Chess(self, (25, 50), (24, 480), Pieces.QUEEN, Color.WHITE)
         
+        i = 100
 
         while running:
             clock.tick(FRAMERATE)
@@ -41,16 +41,17 @@ class Game:
 
             self.entities.draw(self)
 
+            if (i == 100):
+                Card(self, (25, 25), Suits.CLUBS, Numbers.J)
+                i = 0
+            i += 1
+
             #add collisions here
             
-            for enemy in self.enemies.get_enemies():
+            for enemy in self.enemies.get_entities():
                 if not enemy.alive():
                     enemy.kill(self)
-                    self.enemies.remove(enemy)
 
             pygame.display.update()
                     
         pygame.quit()
-        
-    def add_money(self, mon):
-        self.money += mon
