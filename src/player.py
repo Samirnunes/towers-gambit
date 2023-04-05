@@ -18,7 +18,7 @@ class Player:
         self.display_button(window, mouse_pos, 'Buy Bishop',
                             BUY_BUTTON_FONT, BUY_BUTTON_FONT_COLOR, BUY_BUTTON_FONT_SIZE,
                             BUY_BUTTON_POSITION, BUY_BUTTON_DIMENSIONS,
-                            BUY_BUTTON_LIGHT_COLOR, BUY_BUTTON_DARK_COLOR)
+                            BUY_BUTTON_LIGHT_COLOR, BUY_BUTTON_DARK_COLOR) # Only an example
 
     def display_player_labels(self, window):
         '''
