@@ -21,12 +21,7 @@ class Map:
         return self.path
 
     def draw(self):
-        map_width, map_height = len(self.map[0]), len(self.map)
-        for map_x in range(0, map_width):
-            for map_y in range(0, map_height):
-                tileset_x, tileset_y = self.map[map_x][map_y]
-                tile = self.tileset[tileset_x][tileset_y]
-                self.game.window.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
+        self.game.window.blit(self.background, (0, 0))
 
     def load_tileset(self, filename):
         image = pygame.image.load(filename)
@@ -93,5 +88,13 @@ class Map:
                     goal = map_point_to_point(map_point)
                 line.append(pixel_to_tile_index(pixel))
         path = sort_path(path, spawn, goal)
+        background = pygame.Surface((WIDTH, HEIGHT))
+        map_width, map_height = len(map[0]), len(map)
+        for map_x in range(0, map_width):
+            for map_y in range(0, map_height):
+                tileset_x, tileset_y = map[map_x][map_y]
+                tile = self.tileset[tileset_x][tileset_y]
+                background.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
+        self.background = background
         self.map = map
         self.path = path
