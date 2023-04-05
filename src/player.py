@@ -9,6 +9,10 @@ class Player:
     def add_money(self, money):
         self.money += money
 
+    def damage(self):
+        if self.lives > 0:
+            self.lives -= 1
+
     def display_user_interface(self, window, mouse_pos):
         '''
         Displays the UI.
@@ -47,7 +51,3 @@ class Player:
         font = pygame.font.SysFont(button_font,button_font_size)
         text = font.render(button_text, 1, button_font_color)
         window.blit(text, button_position)
-
-    def damage(self):
-        if self.lives > 0:
-            self.lives -= 1
