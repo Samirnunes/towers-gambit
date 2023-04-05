@@ -28,15 +28,33 @@ class Numbers(Enum):
     NINE = '9'
     TEN = '10'
 
+class Enemies:
+    def __init__(self):
+        self.enemies = []
+
+    def update(self):
+        for enemy in self.enemies:
+            enemy.update()
+
+    def draw(self):
+        for enemy in self.enemies:
+            enemy.draw()
+
+    def get_enemies(self):
+        return self.enemies
+
+    def append(self, enemy):
+        self.enemies.append(enemy)
+
 class Enemy(Entity):
     
-    def __init__(self, game, width, height):
-        super().__init__(game, width, height)
+    def __init__(self, game, size):
+        super().__init__(game, size)
         self.health = None
         self.velocity = None
         self.path = game.map.get_path()
-        self.x, self.y = self.path[0]
         self.path_index = 0
+        self.pos = list(self.path[0])
         game.enemies.append(self)
 
     def update(self):
@@ -48,31 +66,30 @@ class Enemy(Entity):
         Moves enemy in a iteration of the game loop.
         '''
         if self.path_index < len(self.path) - 1:
-            dest_x = self.path[self.path_index + 1][0]
-            dest_y = self.path[self.path_index + 1][1]
+            dest_pos = list(self.path[self.path_index + 1])
             delta = self.velocity / FRAMERATE
-            if dest_x > self.x:
-                self.x += delta
-                self.x = math.ceil(self.x)
-                if abs(dest_x - self.x) < delta:
-                    self.x = dest_x
-            elif dest_x < self.x:
-                self.x -= delta
-                self.x = math.floor(self.x)
-                if abs(dest_x - self.x) < delta:
-                    self.x = dest_x
-            elif dest_y > self.y:
-                self.y += delta
-                self.y = math.ceil(self.y)
-                if abs(dest_y - self.y) < delta:
-                    self.y = dest_y
-            elif dest_y < self.y:
-                self.y -= delta
-                self.y = math.floor(self.y)
-                if abs(dest_y - self.y) < delta:
-                    self.y = dest_y        
+            if dest_pos[0] > self.pos[0]:
+                self.pos[0] += delta
+                self.pos[0] = math.ceil(self.pos[0])
+                if abs(dest_pos[0] - self.pos[0]) < delta:
+                    self.pos[0] = dest_pos[0]
+            elif dest_pos[0] < self.pos[0]:
+                self.pos[0] -= delta
+                self.pos[0] = math.floor(self.pos[0])
+                if abs(dest_pos[0] - self.pos[0]) < delta:
+                    self.pos[0] = dest_pos[0]
+            elif dest_pos[1] > self.pos[1]:
+                self.pos[1] += delta
+                self.pos[1] = math.ceil(self.pos[1])
+                if abs(dest_pos[1] - self.pos[1]) < delta:
+                    self.pos[1] = dest_pos[1]
+            elif dest_pos[1] < self.pos[1]:
+                self.pos[1] -= delta
+                self.pos[1] = math.floor(self.pos[1])
+                if abs(dest_pos[1] - self.pos[1]) < delta:
+                    self.pos[1] = dest_pos[1]        
         if self.path_index < len(self.path) - 1:
-            if (self.x, self.y) == self.path[self.path_index + 1]:
+            if self.pos == dest_pos:
                 self.path_index += 1
 
     def damage(self, damage):
@@ -91,8 +108,8 @@ class Enemy(Entity):
         
 
 class Card(Enemy):
-    def __init__(self, game, width, height, suit, number):
-            super().__init__(game, width, height)
+    def __init__(self, game, size, suit, number):
+            super().__init__(game, size)
             self.suit = suit
             self.number = number
             self.determine_health_based_on_number()

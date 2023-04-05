@@ -1,6 +1,7 @@
 import os
 import pygame
-from entity import Entity
+from entity import *
+from bullet import *
 from constants import *
 from enum import Enum
 
@@ -18,16 +19,49 @@ class Color(Enum):
     WHITE = 0
     BLACK = 1
 
+class Allies:
+    def __init__(self):
+        self.allies = []
+
+    def update(self):
+        for ally in self.allies:
+            ally.update()
+
+    def draw():
+        for ally in self.allies:
+            ally.draw()
+
+    def get_allies(self):
+        return self.allies
+
+    def append(self, ally):
+        self.allies.append(ally)
+
 class Ally(Entity):
     
-    def __init__(self, game, width, height, point):
-        super().__init__(game, width, height)
-        self.x, self.y = point
+    def __init__(self, game, size, pos):
+        super().__init__(game, size)
+        self.pos = pos
+        self.game = game
+        self.spawn_count = 0
+        self.bullet_size = (20, 20)
+        self.bullet_velocity = 80
+        self.bullet_direction = 0
+
+    def update(self):
+        super().update()
+        self.shoot()
+
+    def shoot(self):
+        if self.spawn_count == 100:
+            Bullet(self.game, self.bullet_size, self.pos, self.bullet_velocity, self.bullet_direction)
+            self.spawn_count = 0
+        self.spawn_count = self.spawn_count + 1
 
 class Chess(Ally):
 
-    def __init__(self, game, width, height, point, piece, color):
-        super().__init__(game, width, height, point)
+    def __init__(self, game, size, pos, piece, color):
+        super().__init__(game, size, pos)
         self.piece = piece
         self.color = color
         self.determine_image_based_on_piece_and_color()

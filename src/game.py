@@ -1,10 +1,8 @@
 import pygame
 from entity import *
-from entities import *
 from enemy import *
-from enemies import *
 from ally import *
-from allies import *
+from player import *
 from map import *
 from constants import *
 
@@ -15,8 +13,8 @@ class Game:
         self.entities = Entities()
         self.enemies = Enemies()
         self.allies = Allies()
-        self.lives = 5
-        self.money = 200
+        self.bullets = Bullets()
+        self.player = Player()
 
     def run(self):
         '''
@@ -27,8 +25,8 @@ class Game:
         self.window.fill((0, 0, 0))
         
 
-        Card(self, 25, 25, Suits.CLUBS, Numbers.J)
-        Chess(self, 25, 25, (100, 50), Pieces.BISHOP, Color.WHITE)
+        Card(self, (25, 25), Suits.CLUBS, Numbers.J)
+        Chess(self, (25, 25), (24, 480), Pieces.BISHOP, Color.WHITE)
         
 
         while running:

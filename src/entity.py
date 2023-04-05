@@ -1,13 +1,29 @@
 import pygame
 
+class Entities:
+    def __init__(self):
+        self.entities = []
+
+    def update(self):
+        for entity in self.entities:
+            entity.update()
+
+    def draw(self, game):
+        for entity in self.entities:
+            entity.draw(game)
+
+    def get_entities(self):
+        return self.entities
+
+    def append(self, entity):
+        self.entities.append(entity)
+
 class Entity:
-    def __init__(self, game, width, height):
-        self.x = None
-        self.y = None
+    def __init__(self, game, size):
         self.images = None
         self.animation_count = None
-        self.width = width
-        self.height = height
+        self.pos = None
+        self.size = size
         game.entities.append(self)
 
     def update(self):
@@ -18,13 +34,13 @@ class Entity:
         Draws the entity in the given Pygame's window.
         '''
         image = self.images[self.animation_count]
-        image = pygame.transform.scale(image, (self.width, self.height))
+        image = pygame.transform.scale(image, self.size)
         
         self.animation_count += 1
         if self.animation_count > len(self.images) - 1:
             self.animation_count = 0
 
-        game.window.blit(image, (self.x - self.width / 2, self.y - self.height / 2))
+        game.window.blit(image, (self.pos[0] - self.size[0] / 2, self.pos[1] - self.size[1] / 2))
 
     def collide(self, other_x, other_y, other_width, other_height):
         '''
