@@ -30,8 +30,8 @@ class Numbers(Enum):
 
 class Enemy(Entity):
     
-    def __init__(self, width, height):
-        super().__init__(width, height)
+    def __init__(self, width, height, map):
+        super().__init__(width, height, map)
         self.health = None
         self.velocity = None
         self.path = None
@@ -41,7 +41,7 @@ class Enemy(Entity):
         '''
         Sets enemy's path based on a map.
         '''
-        self.path = map.get_path()
+        self.path = self.map.get_path()
 
     def set_initial_position(self):
         '''
@@ -111,8 +111,8 @@ class Enemy(Entity):
         
 
 class Card(Enemy):
-    def __init__(self, width, height, suit, number):
-            super().__init__(width, height)
+    def __init__(self, width, height, suit, number, map):
+            super().__init__(width, height, map)
             self.suit = suit
             self.number = number
             self.determine_health_based_on_number()

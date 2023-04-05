@@ -7,20 +7,12 @@ from constants import *
 
 class Game:
     def __init__(self):
-        self.width = WIDTH
-        self.height = HEIGHT
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
+        self.map = Map('tileset.png', 'map.png')
         self.allies = []
         self.enemies = []
         self.lives = 5
         self.money = 200
-        self.background = None
-
-    def set_background(self, map):
-        '''
-        Sets game's background based on a map.
-        '''
-        self.background = map.get_background(self.width, self.height)
 
     def run(self):
         '''
@@ -29,10 +21,11 @@ class Game:
         running = True
         clock = pygame.time.Clock()
         
-        map = Map(MapShapes.SHAPE1)
-        self.set_background(map)
-        self.create_enemy_card(map, 25, 25, Suits.CLUBS, Numbers.J)
-        self.create_ally_piece(100, 50, 25, 25, Pieces.BISHOP, Color.WHITE)
+        self.map.draw(self.window)
+
+        self.create_enemy_card(25, 25, Suits.CLUBS, Numbers.J, self.map)
+        # self.create_ally_piece(100, 50, 25, 25, Pieces.BISHOP, Color.WHITE)
+        self.enemies[0].draw(self.window)
         
         while running:
             clock.tick(FRAMERATE)
@@ -40,7 +33,6 @@ class Game:
                 if event.type == pygame.QUIT:
                     running = False
 
-            self.draw()
             for enemy in self.enemies:
                 enemy.draw(self.window)
                 enemy.move()
@@ -58,18 +50,11 @@ class Game:
                     
         pygame.quit()
         
-    def draw(self):
-        '''
-        Draws game's background.
-        '''
-        self.window.blit(self.background, (0, 0))
-        pygame.display.update()
-        
-    def create_enemy_card(self, map, width, height, suit, number):
+    def create_enemy_card(self, width, height, suit, number, map):
         '''
         Creates an enemy card (only for test, must be substituted).
         '''
-        new_enemy = Card(width, height, suit, number)
+        new_enemy = Card(width, height, suit, number, map)
         new_enemy.set_on_map(map)
         self.enemies.append(new_enemy)
 

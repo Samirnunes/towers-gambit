@@ -1,32 +1,16 @@
 import os
 import pygame
 from enum import Enum
-
-class MapShapes(Enum):
-
-    SHAPE1 = (pygame.image.load(os.path.join
-                                (os.path.join
-                                 ('assets', 'pixel_chess','boards', 'board_plain_04_modified.png'))),
-             [(5, 185), 
-            (150, 185), (150, 285), (65, 285), (65, 455), (150, 455), 
-            (150, 545), (110, 545), (110, 635), (440, 635), (440, 550), 
-            (315, 550), (315, 460), (530, 460), (530, 590), (615, 590), 
-            (615, 375), (650, 375),  (650, 200), (610, 200), (610, 155), 
-            (525, 155), (525, 110), (350, 110), (359, 195), (395, 195), 
-            (395, 330)])
+from constants import *
 
 class Map:
 
-    def __init__(self, map_shape):
-        self.background = map_shape.value[0]
-        self.path = map_shape.value[1]
-
-    def get_background(self, width, height):
-        '''
-        Scales based on width and height and returns the map's background.
-        '''
-        background = pygame.transform.scale(self.background, (width, height))
-        return background
+    def __init__(self, tileset_filename, map_filename):
+        self.tileset = None
+        self.map = None
+        self.path = None
+        self.load_tileset(os.path.join('assets', tileset_filename))
+        self.load_map(os.path.join('maps', map_filename))
 
     def get_path(self):
         '''
@@ -34,3 +18,79 @@ class Map:
         Path is the place where an enemy can walk through.
         '''
         return self.path
+
+    def draw(self, window):
+        map_width, map_height = len(self.map[0]), len(self.map)
+        for map_x in range(0, map_width):
+            for map_y in range(0, map_height):
+                tileset_x, tileset_y = self.map[map_x][map_y]
+                tile = self.tileset[tileset_x][tileset_y]
+                window.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
+
+    def load_tileset(self, filename):
+        image = pygame.image.load(filename)
+        image_width, image_height = image.get_size()
+        tileset = []
+        for tileset_x in range(0, image_width // TILE_WIDTH):
+            line = []
+            tileset.append(line)
+            for tileset_y in range(0, image_height // TILE_HEIGHT):
+                rect = (tileset_x * TILE_WIDTH, tileset_y * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT)
+                line.append(image.subsurface(rect))
+        self.tileset = tileset
+
+    def load_map(self, filename):
+        # Inner functions
+        # Check if pixel fits any special tile case
+        def check_special_case(pixel):
+            r, g, b, a = pixel
+            cases = ['', 'path', 'spawn', 'goal']
+            return cases[b // 16]
+        # Convert image pixel to tile index
+        def pixel_to_tile_index(pixel):
+            r, g, b, a = pixel
+            return (r // 16, g // 16)
+        # Sort path from spawn to goal
+        def sort_path(path, spawn, goal):
+            new_path = []
+            current = spawn
+            while path:
+                new_path.append(current)
+                path.remove(current)
+                if ((current[0] - TILE_WIDTH, current[1]) in path):
+                    current = (current[0] - TILE_WIDTH, current[1])
+                elif ((current[0] + TILE_WIDTH, current[1]) in path):
+                    current = (current[0] + TILE_WIDTH, current[1])
+                elif ((current[0], current[1] - TILE_HEIGHT) in path):
+                    current = (current[0], current[1] - TILE_HEIGHT)
+                elif ((current[0], current[1] + TILE_HEIGHT) in path):
+                    current = (current[0], current[1] + TILE_HEIGHT)
+            return new_path
+        # Convert map point to point
+        def map_point_to_point(map_point):
+            return (TILE_WIDTH / 2 + TILE_WIDTH * map_point[0], TILE_WIDTH / 2 + TILE_WIDTH * map_point[1])
+        # Outer function
+        # Load map
+        image = pygame.image.load(filename)
+        image_width, image_height = image.get_size()
+        map = []
+        path = []
+        for map_x in range(0, image_width):
+            line = []
+            map.append(line)
+            for map_y in range(0, image_height):
+                map_point = (map_x, map_y)
+                pixel = image.get_at(map_point)
+                special_case = check_special_case(pixel)
+                if special_case == 'path':
+                    path.append(map_point_to_point(map_point))
+                elif special_case == 'spawn':
+                    path.append(map_point_to_point(map_point))
+                    spawn = map_point_to_point(map_point)
+                elif special_case == 'goal':
+                    path.append(map_point_to_point(map_point))
+                    goal = map_point_to_point(map_point)
+                line.append(pixel_to_tile_index(pixel))
+        path = sort_path(path, spawn, goal)
+        self.map = map
+        self.path = path

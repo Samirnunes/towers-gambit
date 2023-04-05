@@ -1,13 +1,14 @@
 import pygame
 
 class Entity:
-    def __init__(self, width, height):
+    def __init__(self, width, height, map):
         self.x = None
         self.y = None
         self.imgs = None
         self.animation_count = None
         self.width = width
         self.height = height
+        self.map = map
     
     def draw(self, window):
         '''
