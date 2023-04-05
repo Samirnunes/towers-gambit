@@ -25,7 +25,7 @@ class Game:
         self.window.fill((0, 0, 0))
         
 
-        Chess(self, (25, 50), (24, 480), Pieces.QUEEN, Color.WHITE)
+        Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.QUEEN, Color.WHITE)
         
         i = 100
 
@@ -42,7 +42,7 @@ class Game:
             self.entities.draw()
 
             if (i == 100):
-                Card(self, (25, 25), Suits.CLUBS, Numbers.J)
+                Card(self, (CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.J)
                 i = 0
             i += 1
 

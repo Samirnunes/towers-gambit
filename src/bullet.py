@@ -38,8 +38,9 @@ class Bullet(Entity):
         Returns if an enemy has been collided and saves the enemy which was hit in the collided enemies list.
         Each bullet can hit only one enemy.
         '''
-        collided = self.collide(enemy.pos[0], enemy.pos[1], enemy.size[0], enemy.size[1])
+        collided = False
         for enemy in self.game.enemies.get_entities():
+            collided = self.collide(enemy.pos[0], enemy.pos[1], enemy.size[0], enemy.size[1])
             if collided and enemy not in self.collided_enemies:
                 self.collided_enemies.append(enemy)
                 break

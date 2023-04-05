@@ -65,5 +65,4 @@ class Entity:
             (rect1_bottom < rect2_top) and
             (rect1_top > rect2_bottom)):
           return True
-        
         return False

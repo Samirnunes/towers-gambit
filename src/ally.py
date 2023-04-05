@@ -36,7 +36,7 @@ class Chess(Ally):
         self.piece = piece
         self.color = color
         self.determine_image_based_on_piece_and_color()
-        self.determine_bullet_based_on_piece_and_color()
+        self.determine_constants_based_on_piece()
 
     def update(self):
         super().update()
@@ -63,13 +63,41 @@ class Chess(Ally):
         self.animation_count = 0
         self.images = [pygame.image.load(os.path.join('assets', 'pixel_chess', '16x32_pieces', png_str))]
 
-    def determine_bullet_based_on_piece_and_color(self):
-        # Modify to each piece
+    def determine_constants_based_on_piece(self):
 
-        self.bullet_size = (20, 20)
-        self.bullet_velocity = 120
-        self.bullet_direction = 0
-        self.bullet_damage = 1
-        self.bullet_penetration_power = 2
+        if self.piece == Pieces.PAWN:
+            self.bullet_size = PAWN_CONSTANTS['bullet_size']
+            self.bullet_velocity = PAWN_CONSTANTS['bullet_velocity']
+            self.bullet_direction = PAWN_CONSTANTS['bullet_direction']
+            self.bullet_damage = PAWN_CONSTANTS['bullet_damage']
+            self.bullet_penetration_power = PAWN_CONSTANTS['bullet_penetration_power']
+
+        elif self.piece == Pieces.BISHOP:
+            self.bullet_size = BISHOP_CONSTANTS['bullet_size']
+            self.bullet_velocity = BISHOP_CONSTANTS['bullet_velocity']
+            self.bullet_direction = BISHOP_CONSTANTS['bullet_direction']
+            self.bullet_damage = BISHOP_CONSTANTS['bullet_damage']
+            self.bullet_penetration_power = BISHOP_CONSTANTS['bullet_penetration_power']
+
+        elif self.piece == Pieces.TOWER:
+            self.bullet_size = TOWER_CONSTANTS['bullet_size']
+            self.bullet_velocity = TOWER_CONSTANTS['bullet_velocity']
+            self.bullet_direction = TOWER_CONSTANTS['bullet_direction']
+            self.bullet_damage = TOWER_CONSTANTS['bullet_damage']
+            self.bullet_penetration_power = TOWER_CONSTANTS['bullet_penetration_power']
+        
+        elif self.piece == Pieces.KNIGHT:
+            self.bullet_size = KNIGHT_CONSTANTS['bullet_size']
+            self.bullet_velocity = KNIGHT_CONSTANTS['bullet_velocity']
+            self.bullet_direction = KNIGHT_CONSTANTS['bullet_direction']
+            self.bullet_damage = KNIGHT_CONSTANTS['bullet_damage']
+            self.bullet_penetration_power = KNIGHT_CONSTANTS['bullet_penetration_power']
+
+        elif self.piece == Pieces.QUEEN: 
+            self.bullet_size = QUEEN_CONSTANTS['bullet_size']
+            self.bullet_velocity = QUEEN_CONSTANTS['bullet_velocity']
+            self.bullet_direction = QUEEN_CONSTANTS['bullet_direction']
+            self.bullet_damage = QUEEN_CONSTANTS['bullet_damage']
+            self.bullet_penetration_power = QUEEN_CONSTANTS['bullet_penetration_power']
         
 

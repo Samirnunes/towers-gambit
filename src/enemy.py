@@ -102,6 +102,16 @@ class Card(Enemy):
         if not self.alive():
             self.kill()
 
+    def kill(self):
+        '''
+        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
+        '''
+        self.health = 0
+        money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
+        self.game.player.add_money(money)
+        self.game.enemies.remove(self)
+        self.game.entities.remove(self)
+
     def determine_health_based_on_number(self):
         '''
         Determines card's health based on number atribute.
@@ -122,13 +132,13 @@ class Card(Enemy):
         Determines card's velocity based on suit atribute.
         '''
         if self.suit == Suits.SPADES:
-            self.velocity = 10
+            self.velocity = SPADES_CONSTANTS['velocity']
         elif self.suit == Suits.CLUBS:
-            self.velocity = 20
+            self.velocity = CLUBS_CONSTANTS['velocity']
         elif self.suit == Suits.HEARTS:
-            self.velocity = 30
+            self.velocity = HEARTS_CONSTANTS['velocity']
         elif self.suit == Suits.DIAMONDS:
-            self.velocity = 40
+            self.velocity = DIAMONDS_CONTANTS['velocity']
     
     def determine_image_based_on_suit_and_number(self):
         '''
@@ -145,13 +155,3 @@ class Card(Enemy):
             png_str = 'French-' + 'Diamond' + '-' + self.number.value + '.png'
         self.animation_count = 0
         self.images = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]
-        
-    def kill(self):
-        '''
-        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
-        '''
-        self.health = 0
-        money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
-        self.game.player.add_money(money)
-        self.game.enemies.remove(self)
-        self.game.entities.remove(self)
