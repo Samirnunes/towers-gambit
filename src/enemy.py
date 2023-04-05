@@ -99,6 +99,8 @@ class Card(Enemy):
     def update(self):
         super().update()
         self.move()
+        if self.pos == list(self.path[-1]):
+            self.game.player.damage()
         if not self.alive():
             self.kill()
 
@@ -107,10 +109,14 @@ class Card(Enemy):
         Cleanup actions. 'alive' should be called before to check if the enmy is dead.
         '''
         self.health = 0
-        money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
-        self.game.player.add_money(money)
+        if self.pos != list(self.path[-1]):
+            money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
+            self.game.player.add_money(money)
         self.game.enemies.remove(self)
         self.game.entities.remove(self)
+
+    def damage_player(self):
+        self.game.player.damage()
 
     def determine_health_based_on_number(self):
         '''

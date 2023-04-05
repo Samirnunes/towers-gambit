@@ -24,7 +24,6 @@ class Game:
         clock = pygame.time.Clock()
         self.window.fill((0, 0, 0))
         
-
         Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.QUEEN, Color.WHITE)
         
         i = 100
@@ -38,15 +37,14 @@ class Game:
                     running = False
 
             self.entities.update()
-
             self.entities.draw()
+
+            self.player.display(self.window)
 
             if (i == 100):
                 Card(self, (CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.J)
                 i = 0
             i += 1
-
-            #add collisions here
             
             pygame.display.update()
                     

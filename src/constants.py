@@ -7,6 +7,10 @@ TILE_WIDTH = 48
 TILE_HEIGHT = 48
 LIVES = 5
 MONEY = 200
+LABEL_FONT = "Times New Roman"
+LABEL_FONT_COLOR = (255, 228, 196)
+LIVES_LABEL_POSITION = (600, 20)
+MONEY_LABEL_POSITION = (600, 50)
 
 # Allies Pieces Configurations
 
@@ -50,7 +54,7 @@ CARDS_HEIGHT = 30
 
 SPADES_CONSTANTS = {'velocity': 10}
 
-CLUBS_CONSTANTS = {'velocity': 20}
+CLUBS_CONSTANTS = {'velocity': 200}
 
 HEARTS_CONSTANTS = {'velocity': 30}
 
