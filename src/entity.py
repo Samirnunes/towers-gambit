@@ -8,9 +8,9 @@ class Entities:
         for entity in self.entities:
             entity.update()
 
-    def draw(self, game):
+    def draw(self):
         for entity in self.entities:
-            entity.draw(game)
+            entity.draw()
 
     def get_entities(self):
         return self.entities
@@ -26,13 +26,14 @@ class Entity:
         self.images = None
         self.animation_count = None
         self.pos = None
+        self.game = game
         self.size = size
-        game.entities.append(self)
+        self.game.entities.append(self)
 
     def update(self):
         pass
     
-    def draw(self, game):
+    def draw(self):
         '''
         Draws the entity in the given Pygame's window.
         '''
@@ -43,7 +44,7 @@ class Entity:
         if self.animation_count > len(self.images) - 1:
             self.animation_count = 0
 
-        game.window.blit(image, (self.pos[0] - self.size[0] / 2, self.pos[1] - self.size[1] / 2))
+        self.game.window.blit(image, (self.pos[0] - self.size[0] / 2, self.pos[1] - self.size[1] / 2))
 
     def collide(self, other_x, other_y, other_width, other_height):
         '''

@@ -42,6 +42,8 @@ class Enemy(Entity):
     def update(self):
         super().update()
         self.move()
+        if not self.alive():
+            self.kill()
     
     def move(self):
         '''
@@ -143,12 +145,12 @@ class Card(Enemy):
         self.animation_count = 0
         self.images = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]
         
-    def kill(self, game):
+    def kill(self):
         '''
         Cleanup actions. 'alive' should be called before to check if the enmy is dead.
         '''
         self.health = 0
         money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
-        game.player.add_money(money)
-        game.enemies.remove(self)
-        game.entities.remove(self)
+        self.game.player.add_money(money)
+        self.game.enemies.remove(self)
+        self.game.entities.remove(self)

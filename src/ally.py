@@ -24,10 +24,9 @@ class Ally(Entity):
     def __init__(self, game, size, pos):
         super().__init__(game, size)
         self.pos = pos
-        self.game = game
         self.spawn_count = 99
         self.bullet_size = (20, 20)
-        self.bullet_velocity = 80
+        self.bullet_velocity = 120
         self.bullet_direction = 0
 
     def update(self):

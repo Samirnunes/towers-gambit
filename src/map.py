@@ -5,10 +5,11 @@ from constants import *
 
 class Map:
 
-    def __init__(self, tileset_filename, map_filename):
+    def __init__(self, game, tileset_filename, map_filename):
         self.tileset = None
         self.map = None
         self.path = None
+        self.game = game
         self.load_tileset(os.path.join('assets', tileset_filename))
         self.load_map(os.path.join('maps', map_filename))
 
@@ -19,13 +20,13 @@ class Map:
         '''
         return self.path
 
-    def draw(self, game):
+    def draw(self):
         map_width, map_height = len(self.map[0]), len(self.map)
         for map_x in range(0, map_width):
             for map_y in range(0, map_height):
                 tileset_x, tileset_y = self.map[map_x][map_y]
                 tile = self.tileset[tileset_x][tileset_y]
-                game.window.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
+                self.game.window.blit(tile, (map_x * TILE_WIDTH, map_y * TILE_HEIGHT))
 
     def load_tileset(self, filename):
         image = pygame.image.load(filename)
