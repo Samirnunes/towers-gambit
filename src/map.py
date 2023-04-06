@@ -1,6 +1,5 @@
 import os
 import pygame
-from enum import Enum
 from constants import *
 
 class Map:
