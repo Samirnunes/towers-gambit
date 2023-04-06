@@ -57,6 +57,12 @@ QUEEN_CONSTANTS = {'bullet_size': (20, 20)
                   , 'bullet_damage': 200
                   , 'bullet_penetration_power': 1}
 
+PIECES_CONSTANTS = {'Pawn': PAWN_CONSTANTS,
+                    'Bishop': BISHOP_CONSTANTS,
+                    'Rook': ROOK_CONSTANTS,
+                    'Knight': KNIGHT_CONSTANTS,
+                    'Queen': QUEEN_CONSTANTS}
+
 # Enemies Cards Configurations
 
 CARDS_WIDTH = 25
@@ -68,6 +74,11 @@ CLUBS_CONSTANTS = {'velocity': 200}
 
 HEARTS_CONSTANTS = {'velocity': 30}
 
-DIAMONDS_CONTANTS = {'velocity': 40}
+DIAMONDS_CONSTANTS = {'velocity': 40}
+
+SUITS_CONSTANTS = {'Spades': SPADES_CONSTANTS,
+                   'Clubs': CLUBS_CONSTANTS,
+                   'Hearts': HEARTS_CONSTANTS,
+                   'Diamonds': DIAMONDS_CONSTANTS}
 
 

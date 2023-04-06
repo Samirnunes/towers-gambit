@@ -10,6 +10,8 @@ class Bullet(Entity):
         super().__init__(game, size)
         self.animation_count = 0
         self.images = [pygame.image.load(os.path.join('assets', 'arrow.png'))]
+        for i in range(1, 9):
+            pass
         self.pos = pos
         self.velocity = velocity
         self.direction = direction

@@ -7,10 +7,10 @@ from enum import Enum
 
 class Suits(Enum):
 
-    SPADES = 0
-    CLUBS = 1
-    HEARTS = 2
-    DIAMONDS = 3
+    SPADES = 'Spades'
+    CLUBS = 'Clubs'
+    HEARTS = 'Hearts'
+    DIAMONDS = 'Diamonds'
 
 class Numbers(Enum):
 
@@ -137,27 +137,13 @@ class Card(Enemy):
         '''
         Determines card's velocity based on suit atribute.
         '''
-        if self.suit == Suits.SPADES:
-            self.velocity = SPADES_CONSTANTS['velocity']
-        elif self.suit == Suits.CLUBS:
-            self.velocity = CLUBS_CONSTANTS['velocity']
-        elif self.suit == Suits.HEARTS:
-            self.velocity = HEARTS_CONSTANTS['velocity']
-        elif self.suit == Suits.DIAMONDS:
-            self.velocity = DIAMONDS_CONTANTS['velocity']
+
+        self.velocity = SUITS_CONSTANTS[self.suit.value]['velocity']
     
     def determine_image_based_on_suit_and_number(self):
         '''
         Determine card's image based on suit and number atributes.
         '''
-        png_str = ''
-        if self.suit == Suits.SPADES:
-            png_str = 'French-' + 'Spade' + '-' + self.number.value + '.png'
-        elif self.suit == Suits.CLUBS:
-            png_str = 'French-' + 'Clover' + '-' + self.number.value + '.png'
-        elif self.suit == Suits.HEARTS:
-            png_str = 'French-' + 'Heart' + '-' + self.number.value + '.png'
-        elif self.suit == Suits.DIAMONDS:
-            png_str = 'French-' + 'Diamond' + '-' + self.number.value + '.png'
+        png_str = 'French-' + self.suit.value + '-' + self.number.value + '.png'
         self.animation_count = 0
         self.images = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]
