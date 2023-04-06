@@ -36,6 +36,7 @@ class Bullet(Entity):
         '''
 
         # Precisa ser melhorada para fazer uma animação de "perfuração" no inimigo.
+        # Também é interessante fazer uma animação de "morte" do inimigo em outra função, na classe "Enemy".
 
         if self.find_collision():
             self.animation_count = 3

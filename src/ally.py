@@ -16,8 +16,8 @@ class Pieces(Enum):
 
 class Color(Enum):
 
-    WHITE = 0
-    BLACK = 1
+    WHITE = 'W'
+    BLACK = 'B'
 
 class Ally(Entity):
     
@@ -53,14 +53,7 @@ class Chess(Ally):
         '''
         Determines chess image based on piece and color atributes.
         '''
-        png_str = ''
-        color_str = ''
-        if self.color == Color.WHITE:
-            color_str = 'W'
-        elif self.color == Color.BLACK:
-            color_str = 'B'
-        png_str = color_str + '_' + self.piece.value + '.png'
-
+        png_str = self.color.value + '_' + self.piece.value + '.png'
         self.animation_count = 0
         self.images = [pygame.image.load(os.path.join('assets', 'pixel_chess', '16x32_pieces', png_str))]
 
