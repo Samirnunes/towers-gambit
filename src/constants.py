@@ -39,7 +39,7 @@ BISHOP_CONSTANTS = {'bullet_size': (20, 20)
                   , 'bullet_damage': 1
                   , 'bullet_penetration_power': 1}
 
-TOWER_CONSTANTS = {'bullet_size': (20, 20)
+ROOK_CONSTANTS = {'bullet_size': (20, 20)
                   , 'bullet_velocity': 120
                   , 'bullet_direction': 0
                   , 'bullet_damage': 1

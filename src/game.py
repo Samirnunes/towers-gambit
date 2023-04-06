@@ -24,7 +24,7 @@ class Game:
         clock = pygame.time.Clock()
         self.window.fill((0, 0, 0))
         
-        Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.QUEEN, Color.WHITE)
+        Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.ROOK, Color.WHITE)
         
         i = 100
 

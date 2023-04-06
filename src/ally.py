@@ -10,7 +10,7 @@ class Pieces(Enum):
     PAWN = 'Pawn'
     BISHOP = 'Bishop'
     KNIGHT = 'Knight'
-    TOWER = 'Tower'
+    ROOK = 'Rook'
     QUEEN = 'Queen'
     KING = 'King'
 
@@ -79,12 +79,12 @@ class Chess(Ally):
             self.bullet_damage = BISHOP_CONSTANTS['bullet_damage']
             self.bullet_penetration_power = BISHOP_CONSTANTS['bullet_penetration_power']
 
-        elif self.piece == Pieces.TOWER:
-            self.bullet_size = TOWER_CONSTANTS['bullet_size']
-            self.bullet_velocity = TOWER_CONSTANTS['bullet_velocity']
-            self.bullet_direction = TOWER_CONSTANTS['bullet_direction']
-            self.bullet_damage = TOWER_CONSTANTS['bullet_damage']
-            self.bullet_penetration_power = TOWER_CONSTANTS['bullet_penetration_power']
+        elif self.piece == Pieces.ROOK:
+            self.bullet_size = ROOK_CONSTANTS['bullet_size']
+            self.bullet_velocity = ROOK_CONSTANTS['bullet_velocity']
+            self.bullet_direction = ROOK_CONSTANTS['bullet_direction']
+            self.bullet_damage = ROOK_CONSTANTS['bullet_damage']
+            self.bullet_penetration_power = ROOK_CONSTANTS['bullet_penetration_power']
         
         elif self.piece == Pieces.KNIGHT:
             self.bullet_size = KNIGHT_CONSTANTS['bullet_size']
