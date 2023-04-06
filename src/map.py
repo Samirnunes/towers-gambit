@@ -37,8 +37,10 @@ class Map:
 
     def load_map(self, filename):
         # Inner functions
-        # Check if pixel fits any special tile case
         def check_special_case(pixel):
+            '''
+            Check if pixel fits any special tile case.
+            '''
             r, g, b, a = pixel
             cases = ['', 'path', 'spawn', 'goal']
             return cases[b // 16]
@@ -46,8 +48,11 @@ class Map:
         def pixel_to_tile_index(pixel):
             r, g, b, a = pixel
             return (r // 16, g // 16)
-        # Sort path from spawn to goal
+        
         def sort_path(path, spawn, goal):
+            '''
+            Sorts path from spawn to goal.
+            '''
             new_path = []
             current = spawn
             while path:
@@ -62,8 +67,10 @@ class Map:
                 elif ((current[0], current[1] + TILE_HEIGHT) in path):
                     current = (current[0], current[1] + TILE_HEIGHT)
             return new_path
-        # Convert map point to point
         def map_point_to_point(map_point):
+            '''
+            Converts map point to point.
+            '''
             return (TILE_WIDTH / 2 + TILE_WIDTH * map_point[0], TILE_WIDTH / 2 + TILE_WIDTH * map_point[1])
         # Outer function
         # Load map
