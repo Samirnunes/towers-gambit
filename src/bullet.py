@@ -1,17 +1,15 @@
 import pygame
 import math
-import os
 from entity import Entity
 from constants import *
 
 class Bullet(Entity):
     
-    def __init__(self, game, size, pos, velocity, direction, damage, penetration_power):
+    def __init__(self, game, ally, size, pos, velocity, direction, damage, penetration_power):
         super().__init__(game, size)
         self.animation_count = 0
-        self.images = [pygame.image.load(os.path.join('assets', 'arrow.png'))]
-        for i in range(1, 9):
-            pass
+        self.ally = ally
+        self.determine_images_based_on_ally()
         self.pos = pos
         self.velocity = velocity
         self.direction = direction
@@ -20,14 +18,39 @@ class Bullet(Entity):
         self.collided_enemies = []
         game.bullets.append(self)
 
+    def determine_images_based_on_ally(self):
+        self.images = PIECES_CONSTANTS[self.ally.piece.value]['bullet_images']
+
     def update(self):
         super().update()
         self.move()
         valid_collision = self.find_collision()
         if valid_collision:
             self.do_damage()
-        if len(self.collided_enemies) >= self.penetration_power:
+        if len(self.collided_enemies) >= self.penetration_power and self.animation_count == len(self.images) - 1:
             self.remove()
+
+    def draw(self):
+        '''
+        Draws the bullet in the given Pygame's window.
+        '''
+
+        # Precisa ser melhorada para fazer uma animação de "perfuração" no inimigo.
+
+        if self.find_collision():
+            self.animation_count = 3
+            while self.animation_count != len(self.images) - 1:
+                image = self.images[self.animation_count]
+                image = pygame.transform.scale(image, self.size)
+                self.game.window.blit(image, (self.pos[0] - self.size[0] / 2, self.pos[1] - self.size[1] / 2))
+                self.animation_count += 1
+        else:
+            image = self.images[self.animation_count]
+            image = pygame.transform.scale(image, self.size)
+            self.game.window.blit(image, (self.pos[0] - self.size[0] / 2, self.pos[1] - self.size[1] / 2))
+            self.animation_count += 1
+            if self.animation_count > 2:
+                self.animation_count = 0
     
     def move(self):
         '''

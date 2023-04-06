@@ -44,7 +44,7 @@ class Chess(Ally):
 
     def shoot(self):
         if self.spawn_count == 100:
-            Bullet(self.game, self.bullet_size, self.pos, self.bullet_velocity, 
+            Bullet(self.game, self, self.bullet_size, self.pos, self.bullet_velocity, 
                    self.bullet_direction, self.bullet_damage, self.bullet_penetration_power)
             self.spawn_count = 0
         self.spawn_count = self.spawn_count + 1
