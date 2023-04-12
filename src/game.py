@@ -1,5 +1,6 @@
 import pygame
 from entity import *
+from entities import *
 from enemy import *
 from ally import *
 from player import *
