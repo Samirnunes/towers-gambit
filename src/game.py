@@ -26,18 +26,16 @@ class Game:
         self.window.fill((0, 0, 0))
         
         Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.ROOK, Color.WHITE)
-        
         i = 100
 
         while running:
             clock.tick(FRAMERATE)
+            mouse_pos = pygame.mouse.get_pos()
             self.window.fill((0, 0, 0))
             self.map.draw()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-
-            mouse_pos = pygame.mouse.get_pos()
 
             self.entities.update()
             self.entities.draw()

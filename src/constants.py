@@ -30,7 +30,9 @@ BUY_BUTTON_DARK_COLOR = (100, 100, 100)
 PIECES_WIDTH = 25
 PIECES_HEIGHT = 50
 
-PAWN_CONSTANTS = {'bullet_size': (55, 55)
+PAWN_CONSTANTS = {'cost': 100
+                  , 'bullet_shoot_rate': 100
+                  , 'bullet_size': (55, 55)
                   , 'bullet_velocity': 120
                   , 'bullet_direction': 0
                   , 'bullet_damage': 1
@@ -44,12 +46,14 @@ PAWN_CONSTANTS = {'bullet_size': (55, 55)
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_7.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_8.png'))]}
 
-BISHOP_CONSTANTS = {'bullet_size': (55, 55)
-                  , 'bullet_velocity': 120
-                  , 'bullet_direction': 0
-                  , 'bullet_damage': 1
-                  , 'bullet_penetration_power': 1
-                  , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
+BISHOP_CONSTANTS = {'cost': 100
+                   , 'bullet_shoot_rate': 100
+                   , 'bullet_size': (55, 55)
+                   , 'bullet_velocity': 120
+                   , 'bullet_direction': 0
+                   , 'bullet_damage': 1
+                   , 'bullet_penetration_power': 1
+                   , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_2.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_3.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_4.png')),
@@ -58,7 +62,9 @@ BISHOP_CONSTANTS = {'bullet_size': (55, 55)
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_7.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_8.png'))]}
 
-ROOK_CONSTANTS = {'bullet_size': (55, 55)
+ROOK_CONSTANTS = {'cost': 100
+                  , 'bullet_shoot_rate': 100
+                  , 'bullet_size': (55, 55)
                   , 'bullet_velocity': 120
                   , 'bullet_direction': 0
                   , 'bullet_damage': 10
@@ -72,12 +78,14 @@ ROOK_CONSTANTS = {'bullet_size': (55, 55)
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_7.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_8.png'))]}
 
-KNIGHT_CONSTANTS = {'bullet_size': (55, 55)
-                  , 'bullet_velocity': 120
-                  , 'bullet_direction': 0
-                  , 'bullet_damage': 1
-                  , 'bullet_penetration_power': 1
-                  , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
+KNIGHT_CONSTANTS = {'cost': 100
+                    , 'bullet_shoot_rate': 100
+                    , 'bullet_size': (55, 55)
+                    , 'bullet_velocity': 120
+                    , 'bullet_direction': 0
+                    , 'bullet_damage': 1
+                    , 'bullet_penetration_power': 1
+                    , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_2.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_3.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_4.png')),
@@ -86,12 +94,14 @@ KNIGHT_CONSTANTS = {'bullet_size': (55, 55)
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_7.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_8.png'))]}
 
-QUEEN_CONSTANTS = {'bullet_size': (55, 55)
-                  , 'bullet_velocity': 120
-                  , 'bullet_direction': 0
-                  , 'bullet_damage': 200
-                  , 'bullet_penetration_power': 1
-                  , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
+QUEEN_CONSTANTS = {'cost': 100
+                   , 'bullet_shoot_rate': 100
+                   , 'bullet_size': (55, 55)
+                   , 'bullet_velocity': 120
+                   , 'bullet_direction': 0
+                   , 'bullet_damage': 200
+                   , 'bullet_penetration_power': 1
+                   , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_2.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_3.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_4.png')),

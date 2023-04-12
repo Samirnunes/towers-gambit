@@ -13,6 +13,9 @@ class Player:
         if self.lives > 0:
             self.lives -= 1
 
+    def buy_piece(self, piece):
+        pass
+
     def display_user_interface(self, window, mouse_pos):
         '''
         Displays the UI.
