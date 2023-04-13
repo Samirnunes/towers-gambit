@@ -15,7 +15,7 @@ class Game:
         self.enemies = Entities()
         self.allies = Entities()
         self.bullets = Entities()
-        self.player = Player()
+        self.player = Player(self)
 
     def run(self):
         '''
@@ -25,7 +25,7 @@ class Game:
         clock = pygame.time.Clock()
         self.window.fill((0, 0, 0))
         
-        Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.ROOK, Color.WHITE)
+        Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.BISHOP, Color.WHITE)
         i = 100
 
         while running:
@@ -39,7 +39,7 @@ class Game:
 
             self.entities.update()
             self.entities.draw()
-            self.player.display_user_interface(self.window, mouse_pos)
+            self.player.display_user_interface(mouse_pos)
 
             if (i == 100):
                 Card(self, (CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.J)

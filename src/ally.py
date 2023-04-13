@@ -58,7 +58,7 @@ class Chess(Ally):
         '''
         png_str = self.color.value + '_' + self.piece.value + '.png'
         self.animation_count = 0
-        self.images = [pygame.image.load(os.path.join('assets', 'pixel_chess', '16x32_pieces', png_str))]
+        self.images = [pygame.image.load(os.path.join('assets', 'chess', png_str))]
 
     def determine_bullet_based_on_piece(self):
 

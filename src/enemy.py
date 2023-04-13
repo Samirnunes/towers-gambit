@@ -146,4 +146,4 @@ class Card(Enemy):
         '''
         png_str = 'French-' + self.suit.value + '-' + self.number.value + '.png'
         self.animation_count = 0
-        self.images = [pygame.image.load(os.path.join('assets', 'cards', 'PNG', 'French_cards', png_str))]
+        self.images = [pygame.image.load(os.path.join('assets', 'cards', 'French_cards', png_str))]
