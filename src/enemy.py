@@ -38,7 +38,7 @@ class Enemy(Entity):
         self.path = game.map.get_path()
         self.path_index = 0
         self.pos = list(self.path[0])
-        game.enemies.append(self)
+        self.game.enemies.append(self)
     
     def update(self):
         super().update()

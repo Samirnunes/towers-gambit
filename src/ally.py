@@ -26,6 +26,7 @@ class Ally(Entity):
         self.pos = pos
         self.cost = None
         self.spawn_count = None
+        self.game.allies.append(self)
 
     def update(self):
         super().update()
