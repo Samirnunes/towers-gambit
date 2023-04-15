@@ -23,7 +23,5 @@ class EnemyWave:
 
     def initialize_enemies(self, enemies_traits):
         for traits in enemies_traits:
-            enemy = Enemy(self.game, traits[0], traits[1], traits[2])
+            enemy = Enemy(self.game, traits[0], traits[1], traits[2]) # Enemy já dá append dele mesmo no jogo.
             self.enemies.append(enemy)
-            self.game.enemies.append(enemy)
-            self.game.entities.append(enemy)
