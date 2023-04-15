@@ -5,7 +5,7 @@ from enemy import *
 from ally import *
 from player import *
 from map import *
-from constants import *
+
 
 class Game:
     def __init__(self):

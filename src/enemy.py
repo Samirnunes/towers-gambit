@@ -2,7 +2,8 @@ import os
 import pygame
 import math
 from entity import Entity
-from constants import *
+from general_game_constants import *
+from enemy_constants import *
 from enum import Enum
 
 class Suits(Enum):

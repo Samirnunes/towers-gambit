@@ -1,6 +1,7 @@
 import os
 import pygame
-from constants import *
+from enemy_constants import *
+from general_game_constants import *
 
 class Map:
 

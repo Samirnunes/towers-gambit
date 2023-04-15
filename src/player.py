@@ -1,5 +1,6 @@
 import pygame
-from constants import *
+import os
+from general_game_constants import *
 
 class Player:
     def __init__(self, game):

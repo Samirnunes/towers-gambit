@@ -2,7 +2,7 @@ import os
 import pygame
 from entity import *
 from bullet import *
-from constants import *
+from ally_constants import *
 from enum import Enum
 
 class Pieces(Enum):

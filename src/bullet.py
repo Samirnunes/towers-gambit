@@ -1,7 +1,8 @@
 import pygame
 import math
 from entity import Entity
-from constants import *
+from general_game_constants import *
+from ally_constants import *
 
 class Bullet(Entity):
     
