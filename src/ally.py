@@ -47,11 +47,11 @@ class Chess(Ally):
         self.shoot()
 
     def shoot(self):
-        if self.spawn_count == self.bullet_shoot_rate:
+        if self.spawn_count == 100:
             Bullet(self.game, self, self.bullet_size, self.pos, self.bullet_velocity, 
                    self.bullet_direction, self.bullet_damage, self.bullet_penetration_power)
             self.spawn_count = 0
-        self.spawn_count = self.spawn_count + 1
+        self.spawn_count += 1
 
     def determine_image_based_on_piece_and_color(self):
         '''

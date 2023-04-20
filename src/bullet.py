@@ -84,4 +84,3 @@ class Bullet(Entity):
         Removes bullet from game.
         '''
         self.game.bullets.remove(self)
-        self.game.entities.remove(self)

@@ -1,6 +1,7 @@
 import pygame
 import os
 from general_game_constants import *
+from ally import *
 
 class Player:
     def __init__(self, game):
@@ -15,12 +16,17 @@ class Player:
         if self.lives > 0:
             self.lives -= 1
 
-    def buy_piece(self, piece):
-        pass
+    def buy_piece(self, piece, color, position):
+        # Only for test, must develop this function to receive 'piece' as a parameter.
+        Chess(self.game, (PIECES_WIDTH, PIECES_HEIGHT), position, piece, color)
 
-    def display_user_interface(self, mouse_pos):
+    def update_allies(self):
+        self.game.allies.update()
+        self.game.allies.draw()
+
+    def update_user_interface(self, mouse_pos):
         '''
-        Displays the UI.
+        Displays the updated UI.
         '''
         pygame.font.init()
         self.display_player_labels()

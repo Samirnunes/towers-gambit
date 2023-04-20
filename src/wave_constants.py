@@ -3,5 +3,10 @@ from enemy_constants import *
 
 # Example for wave 0
 
-WAVE0 = [((CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.J),
-         ((CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.TWO)]
+SPAWN_PERIOD = 1/100 # 1 enemy / 100 frames, may be changed
+SPAWN_FREQ = 1/SPAWN_PERIOD
+
+WAVE0 = [{'shape': (CARDS_WIDTH, CARDS_HEIGHT), 'suit': Suits.CLUBS, 'number': Numbers.J},
+         {'shape': (CARDS_WIDTH, CARDS_HEIGHT), 'suit': Suits.CLUBS, 'number': Numbers.J}]
+
+WAVE1 = []

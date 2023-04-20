@@ -7,7 +7,6 @@ class Entity:
         self.pos = None
         self.game = game
         self.size = size
-        self.game.entities.append(self)
 
     def update(self):
         pass

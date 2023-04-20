@@ -114,7 +114,6 @@ class Card(Enemy):
             money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
             self.game.player.add_money(money)
         self.game.enemies.remove(self)
-        self.game.entities.remove(self)
 
     def damage_player(self):
         self.game.player.damage()

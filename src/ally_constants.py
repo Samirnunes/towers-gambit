@@ -27,7 +27,7 @@ BISHOP_CONSTANTS = {'cost': 100
                    , 'bullet_size': (55, 55)
                    , 'bullet_velocity': 120
                    , 'bullet_direction': 0
-                   , 'bullet_damage': 1
+                   , 'bullet_damage': 100
                    , 'bullet_penetration_power': 1
                    , 'bullet_images': [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png')),
                                       pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_2.png')),

@@ -18,3 +18,9 @@ class Entities:
 
     def remove(self, entity):
         self.entities.remove(entity)
+
+    def empty(self):
+        return len(self.entities) == 0
+    
+    def __len__(self):
+        return len(self.entities)

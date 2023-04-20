@@ -4,6 +4,7 @@ from entities import *
 from enemy import *
 from ally import *
 from player import *
+from enemy_wave import *
 from map import *
 
 
@@ -11,11 +12,19 @@ class Game:
     def __init__(self):
         self.window = pygame.display.set_mode((WIDTH, HEIGHT))
         self.map = Map(self, 'tileset.png', 'map.png')
-        self.entities = Entities()
         self.enemies = Entities()
         self.allies = Entities()
         self.bullets = Entities()
         self.player = Player(self)
+        self.wave = EnemyWave(self)
+
+    def game_update(self, mouse_pos):
+        self.player.update_user_interface(mouse_pos) # displays updated user interface
+        self.player.update_allies() # updates allies
+        self.bullets.update() # updates bullets
+        self.bullets.draw()
+        self.wave.update() # updates enemies
+        pygame.display.update()
 
     def run(self):
         '''
@@ -24,9 +33,7 @@ class Game:
         running = True
         clock = pygame.time.Clock()
         self.window.fill((0, 0, 0))
-        
-        Chess(self, (PIECES_WIDTH, PIECES_HEIGHT), (24, 480), Pieces.BISHOP, Color.WHITE)
-        i = 100
+        self.player.buy_piece(Pieces.BISHOP, Color.WHITE, (24, 480)) # only for test
 
         while running:
             clock.tick(FRAMERATE)
@@ -36,16 +43,7 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-
-            self.entities.update()
-            self.entities.draw()
-            self.player.display_user_interface(mouse_pos)
-
-            if (i == 100):
-                Card(self, (CARDS_WIDTH, CARDS_HEIGHT), Suits.CLUBS, Numbers.J)
-                i = 0
-            i += 1
             
-            pygame.display.update()
-                    
+            self.game_update(mouse_pos)
+
         pygame.quit()
