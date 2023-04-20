@@ -24,6 +24,10 @@ class Player:
         self.game.allies.update()
         self.game.allies.draw()
 
+    def update_bullets(self):
+        self.game.bullets.update()
+        self.game.bullets.draw()
+
     def update_user_interface(self, mouse_pos):
         '''
         Displays the updated UI.

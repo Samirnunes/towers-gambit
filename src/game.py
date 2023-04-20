@@ -21,8 +21,7 @@ class Game:
     def game_update(self, mouse_pos):
         self.player.update_user_interface(mouse_pos) # displays updated user interface
         self.player.update_allies() # updates allies
-        self.bullets.update() # updates bullets
-        self.bullets.draw()
+        self.player.update_bullets()
         self.wave.update() # updates enemies
         pygame.display.update()
 
