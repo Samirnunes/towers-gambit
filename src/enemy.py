@@ -4,30 +4,6 @@ import math
 from entity import Entity
 from general_game_constants import *
 from enemy_constants import *
-from enum import Enum
-
-class Suits(Enum):
-
-    SPADES = 'Spades'
-    CLUBS = 'Clubs'
-    HEARTS = 'Hearts'
-    DIAMONDS = 'Diamonds'
-
-class Numbers(Enum):
-
-    A = 'A'
-    J = 'J'
-    K = 'K'
-    Q = 'Q'
-    TWO = '2'
-    THREE = '3'
-    FOUR = '4'
-    FIVE = '5'
-    SIX = '6'
-    SEVEN = '7'
-    EIGHT = '8'
-    NINE = '9'
-    TEN = '10'
 
 class Enemy(Entity):
     

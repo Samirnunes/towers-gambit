@@ -1,7 +1,22 @@
 import pygame
 import os
+from enum import Enum
 
 # Allies Pieces Configurations
+
+class Pieces(Enum):
+    
+    PAWN = 'Pawn'
+    BISHOP = 'Bishop'
+    KNIGHT = 'Knight'
+    ROOK = 'Rook'
+    QUEEN = 'Queen'
+    KING = 'King'
+
+class Color(Enum):
+
+    WHITE = 'W'
+    BLACK = 'B'
 
 PIECES_WIDTH = 25
 PIECES_HEIGHT = 50

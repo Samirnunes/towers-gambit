@@ -20,19 +20,12 @@ class Player:
         # Only for test, must develop this function to receive 'piece' as a parameter.
         Chess(self.game, (PIECES_WIDTH, PIECES_HEIGHT), position, piece, color)
 
-    def update_allies(self):
-        self.game.allies.update()
-        self.game.allies.draw()
-
-    def update_bullets(self):
-        self.game.bullets.update()
-        self.game.bullets.draw()
-
-    def update_user_interface(self, mouse_pos):
+    def draw_user_interface(self):
         '''
         Displays the updated UI.
         '''
         pygame.font.init()
+        mouse_pos = pygame.mouse.get_pos()
         self.display_player_labels()
         positions = [BUY_BUTTON_POSITION, 
                     (BUY_BUTTON_POSITION[0] + 80, BUY_BUTTON_POSITION[1]),

@@ -3,21 +3,6 @@ import pygame
 from entity import *
 from bullet import *
 from ally_constants import *
-from enum import Enum
-
-class Pieces(Enum):
-    
-    PAWN = 'Pawn'
-    BISHOP = 'Bishop'
-    KNIGHT = 'Knight'
-    ROOK = 'Rook'
-    QUEEN = 'Queen'
-    KING = 'King'
-
-class Color(Enum):
-
-    WHITE = 'W'
-    BLACK = 'B'
 
 class Ally(Entity):
     

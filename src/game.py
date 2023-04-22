@@ -4,7 +4,7 @@ from entities import *
 from enemy import *
 from ally import *
 from player import *
-from enemy_wave import *
+from wave import *
 from map import *
 
 
@@ -16,14 +16,21 @@ class Game:
         self.allies = Entities()
         self.bullets = Entities()
         self.player = Player(self)
-        self.wave = EnemyWave(self)
+        self.wave = Wave(self)
 
-    def game_update(self, mouse_pos):
-        self.player.update_user_interface(mouse_pos) # displays updated user interface
-        self.player.update_allies() # updates allies
-        self.player.update_bullets()
+    def update(self):
+        self.enemies.update()
+        self.allies.update()
+        self.bullets.update()
         self.wave.update() # updates enemies
-        pygame.display.update()
+
+    def draw(self):
+        self.window.fill((0, 0, 0))
+        self.map.draw()
+        self.enemies.draw()
+        self.allies.draw()
+        self.bullets.draw()
+        self.player.draw_user_interface() # displays updated user interface
 
     def run(self):
         '''
@@ -31,18 +38,16 @@ class Game:
         '''
         running = True
         clock = pygame.time.Clock()
-        self.window.fill((0, 0, 0))
         self.player.buy_piece(Pieces.BISHOP, Color.WHITE, (24, 480)) # only for test
 
         while running:
             clock.tick(FRAMERATE)
-            mouse_pos = pygame.mouse.get_pos()
-            self.window.fill((0, 0, 0))
-            self.map.draw()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
             
-            self.game_update(mouse_pos)
+            self.update()
+            self.draw()
+            pygame.display.update()
 
         pygame.quit()

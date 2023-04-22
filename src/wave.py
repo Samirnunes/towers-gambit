@@ -1,7 +1,7 @@
 from wave_constants import *
 from entities import *
 
-class EnemyWave:
+class Wave:
     def __init__(self, game):
         self.game = game
         self.wave_count = 0
@@ -34,11 +34,6 @@ class EnemyWave:
         elif self.wave_count == 1:
             self.enemies_traits = WAVE1
 
-    def update_wave_enemies(self):
-        self.game.enemies.update()
-        self.game.enemies.draw()
-
     def update(self):
         self.initialize_enemy()
-        self.update_wave_enemies()
         self.pass_wave()
