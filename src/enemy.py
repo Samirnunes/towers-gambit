@@ -1,14 +1,12 @@
 import os
-import pygame
 import math
 from entity import Entity
-from general_game_constants import *
-from enemy_constants import *
+from constants import GAME, ENEMY
 
 class Enemy(Entity):
     
-    def __init__(self, game, size):
-        super().__init__(game, size)
+    def __init__(self, game):
+        super().__init__(game)
         self.health = None
         self.velocity = None
         self.path = game.map.get_path()
@@ -18,6 +16,23 @@ class Enemy(Entity):
     
     def update(self):
         super().update()
+        if self.path_index == len(self.path) - 1:
+            self.game.player.receive_damage()
+            self.game.enemies.remove(self)
+        if self.health <= 0:
+            self.game.enemies.remove(self)
+        self.move()
+
+
+    def kill(self):
+        '''
+        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
+        '''
+        self.health = 0
+        if self.pos != list(self.path[-1]):
+            money = 5*self.CARD.HEALTH + self.velocity #can be modified later to make it more playable
+            self.game.player.add_money(money)
+        self.game.enemies.remove(self)
 
     def move(self):
         '''
@@ -25,7 +40,7 @@ class Enemy(Entity):
         '''
         if self.path_index < len(self.path) - 1:
             dest_pos = list(self.path[self.path_index + 1])
-            delta = self.velocity / FRAMERATE
+            delta = self.velocity / GAME.FRAMERATE
             if dest_pos[0] > self.pos[0]:
                 self.pos[0] += delta
                 self.pos[0] = math.ceil(self.pos[0])
@@ -50,76 +65,17 @@ class Enemy(Entity):
             if self.pos == dest_pos:
                 self.path_index += 1
 
-    def damage(self, damage):
+    def receive_damage(self, damage):
         '''
         Removes health from enemy equals to damage.
         '''
         self.health -= damage
           
-    def alive(self):
-        '''
-        Returns if enemy's alive.
-        '''
-        return self.health > 0 and self.path_index != len(self.path) - 1
-    
-        
 class Card(Enemy):
-    def __init__(self, game, size, suit, number):
-            super().__init__(game, size)
-            self.suit = suit
-            self.number = number
-            self.determine_health_based_on_number()
-            self.determine_velocity_based_on_suit()
-            self.determine_image_based_on_suit_and_number()
-            self.starting_health = self.health
-
-    def update(self):
-        super().update()
-        self.move()
-        if self.pos == list(self.path[-1]):
-            self.game.player.damage()
-        if not self.alive():
-            self.kill()
-
-    def kill(self):
-        '''
-        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
-        '''
-        self.health = 0
-        if self.pos != list(self.path[-1]):
-            money = 5*self.starting_health + self.velocity #can be modified later to make it more playable
-            self.game.player.add_money(money)
-        self.game.enemies.remove(self)
-
-    def damage_player(self):
-        self.game.player.damage()
-
-    def determine_health_based_on_number(self):
-        '''
-        Determines card's health based on number atribute.
-        '''
-        if self.number == Numbers.A:
-            self.health = 1
-        elif self.number == Numbers.J:
-            self.health = 11
-        elif self.number == Numbers.Q:
-            self.health = 12
-        elif self.number == Numbers.K:
-            self.health = 13
-        else:
-            self.health = int(self.number.value)
-    
-    def determine_velocity_based_on_suit(self):
-        '''
-        Determines card's velocity based on suit atribute.
-        '''
-
-        self.velocity = SUITS_CONSTANTS[self.suit.value]['velocity']
-    
-    def determine_image_based_on_suit_and_number(self):
-        '''
-        Determine card's image based on suit and number atributes.
-        '''
-        png_str = 'French-' + self.suit.value + '-' + self.number.value + '.png'
-        self.animation_count = 0
-        self.images = [pygame.image.load(os.path.join('assets', 'cards', 'French_cards', png_str))]
+    def __init__(self, game, CARD):
+        super().__init__(game)
+        self.sprites = CARD.SPRITES
+        self.health = CARD.HEALTH
+        self.velocity = CARD.VELOCITY
+        self.size = CARD.SIZE
+        self.CARD = CARD
