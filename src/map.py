@@ -1,19 +1,28 @@
 import os
 import pygame
-from constants import ENEMY
-from constants import GAME
+from constants import GAME, MAP
 
 class Map:
 
-    def __init__(self, game, tileset_filename, map_filename):
+    def __init__(self, game, map_filename):
         self.game = game
         self.tileset = None
         self.map = None
-        self.path = None
-        self.load_tileset(os.path.join('assets', tileset_filename))
-        self.load_map(os.path.join('maps', map_filename))
+        self.path = MAP.MAP1.PATH
+        self.map_filename = map_filename
+
+    def draw(self):
+        image = pygame.image.load(os.path.join('assets', 'maps', self.map_filename))
+        image = pygame.transform.scale(image, (GAME.WIDTH, GAME.HEIGHT))
+        self.game.window.blit(image, (0, 0))
 
     def get_path(self):
+        '''
+        Returns map's path.
+        Path is the place where an enemy can walk through.
+        '''
+        return self.path
+"""     def get_path(self):
         '''
         Returns map's path.
         Path is the place where an enemy can walk through.
@@ -104,4 +113,4 @@ class Map:
                 background.blit(tile, (map_x * GAME.TILE_WIDTH, map_y * GAME.TILE_HEIGHT))
         self.background = background
         self.map = map
-        self.path = path
+        self.path = path """

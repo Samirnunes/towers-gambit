@@ -17,7 +17,6 @@ class GAME:
     LIVES_LABEL_POSITION = (600, 35)
     MONEY_LABEL_POSITION = (600, 65)
 
-
 # Bullet constants
 
 class BULLET:
@@ -175,10 +174,19 @@ class INTERFACE:
                BUTTON.BUY_QUEEN, 
                BUTTON.BUY_ROOK]
 
-class WAVE:
+# Map constants
 
-    SPAWN_FREQ = 100
+class MAP:
+    class MAP1:
+        PATH = ((4, 564), (293, 566), (290, 747), (496, 749), (492, 500), (633, 496), (631, 340), (764, 338))
 
-    WAVE0 = [ENEMY.CARD.C_A, ENEMY.CARD.C_A]
+        WAVES = ((ENEMY.CARD.C_A, ENEMY.CARD.C_A),
+                (ENEMY.CARD.H_TWO, ENEMY.CARD.C_K, ENEMY.CARD.C_FOUR))
+        
+        ENEMY_SPAWN_FREQ = 100
+            
+    class MAP2:
+        PATH = ()
 
-    WAVE1 = []
+    class MAP3:
+        PATH = ()     

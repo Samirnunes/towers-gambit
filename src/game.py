@@ -4,22 +4,21 @@ from entities import *
 from enemy import *
 from ally import *
 from player import *
-from wave import *
+from enemy_wave import *
 from map import *
 from button import *
-from constants import GAME, ALLY
-import numpy as np
+from constants import GAME, MAP
 
 class Game:
     def __init__(self):
         self.window = pygame.display.set_mode((GAME.WIDTH, GAME.HEIGHT))
-        self.map = Map(self, 'tileset.png', 'map.png')
+        self.map = Map(self, 'map1.png')
         self.enemies = Entities()
         self.allies = Entities()
         self.bullets = Entities()
         self.draggables = Entities()
         self.player = Player(self)
-        self.wave = Wave(self)
+        self.wave = Enemy_Wave(self, MAP.MAP1)
         pygame.font.init()
 
     def update(self):
@@ -45,6 +44,7 @@ class Game:
         '''
         running = True
         clock = pygame.time.Clock()
+        #mouse_pos_list = [] # TO GET PATH
 
         while running:
             clock.tick(GAME.FRAMERATE)
@@ -53,6 +53,7 @@ class Game:
                     running = False
                 if event.type == pygame.MOUSEBUTTONUP:
                     mouse_pos = pygame.mouse.get_pos()
+                    #mouse_pos_list.append(mouse_pos) # TO GET PATH
                     draggables = self.draggables.get_entities()
                     for draggable in draggables:
                         draggable.on_click()
@@ -60,7 +61,7 @@ class Game:
                     clicked_buttons = [button for button in buttons if button.clicked(mouse_pos)]
                     for button in clicked_buttons:
                         button.on_click()
-            
+            #print(mouse_pos_list) # TO GET PATH
             self.update()
             self.draw()
             pygame.display.update()
