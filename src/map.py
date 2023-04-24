@@ -4,15 +4,13 @@ from constants import GAME, MAP
 
 class Map:
 
-    def __init__(self, game, map_filename):
+    def __init__(self, game, map_key):
         self.game = game
-        self.tileset = None
-        self.map = None
-        self.path = MAP.MAP1.PATH
-        self.map_filename = map_filename
+        self.map_key = map_key
+        self.path = MAP.PATHS[self.map_key]
 
     def draw(self):
-        image = pygame.image.load(os.path.join('assets', 'maps', self.map_filename))
+        image = pygame.image.load(os.path.join('assets', 'maps', self.map_key + '.png'))
         image = pygame.transform.scale(image, (GAME.WIDTH, GAME.HEIGHT))
         self.game.window.blit(image, (0, 0))
 

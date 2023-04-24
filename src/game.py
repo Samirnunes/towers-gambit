@@ -4,7 +4,7 @@ from entities import *
 from enemy import *
 from ally import *
 from player import *
-from enemy_wave import *
+from enemy_waves import *
 from map import *
 from button import *
 from constants import GAME, MAP
@@ -12,13 +12,13 @@ from constants import GAME, MAP
 class Game:
     def __init__(self):
         self.window = pygame.display.set_mode((GAME.WIDTH, GAME.HEIGHT))
-        self.map = Map(self, 'map1.png')
+        self.map = Map(self, 'map1')
         self.enemies = Entities()
         self.allies = Entities()
         self.bullets = Entities()
         self.draggables = Entities()
         self.player = Player(self)
-        self.wave = Enemy_Wave(self, MAP.MAP1)
+        self.waves = Enemy_Waves(self, self.map)
         pygame.font.init()
 
     def update(self):
@@ -27,7 +27,7 @@ class Game:
         self.bullets.update()
         self.player.interface.update() # displays updated user interface
         self.draggables.update()
-        self.wave.update() # updates enemies
+        self.waves.update() # updates enemies
 
     def draw(self):
         self.window.fill((0, 0, 0))

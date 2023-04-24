@@ -1,13 +1,14 @@
 from enemy import *
 from entities import *
+from constants import MAP
 
-class Enemy_Wave:
-    def __init__(self, game, MAP):
+class Enemy_Waves:
+    def __init__(self, game, map):
         self.game = game
         self.wave_count = 0
         self.enemy_count = 0
-        self.enemy_spawn_time_count = MAP.ENEMY_SPAWN_FREQ
-        self.waves = MAP.WAVES
+        self.enemy_spawn_time_count = MAP.ENEMY_SPAWN_FREQ[map.map_key]
+        self.waves = MAP.WAVES[map.map_key]
 
     def advance_wave(self):
         if self.wave_count < len(self.waves):

@@ -177,16 +177,15 @@ class INTERFACE:
 # Map constants
 
 class MAP:
-    class MAP1:
-        PATH = ((4, 564), (293, 566), (290, 747), (496, 749), (492, 500), (633, 496), (631, 340), (764, 338))
-
-        WAVES = ((ENEMY.CARD.C_A, ENEMY.CARD.C_A),
-                (ENEMY.CARD.H_TWO, ENEMY.CARD.C_K, ENEMY.CARD.C_FOUR))
-        
-        ENEMY_SPAWN_FREQ = 100
-            
-    class MAP2:
-        PATH = ()
-
-    class MAP3:
-        PATH = ()     
+    PATHS = {'map1': ((4, 564), (293, 566), (290, 747), (496, 749), (492, 500), (633, 496), (631, 340), (764, 338)),
+             'map2': ((0,0)), 
+             'map3': ((0,0))}
+    
+    WAVES = {'map1': ((ENEMY.CARD.C_A, ENEMY.CARD.C_A),
+                     (ENEMY.CARD.H_TWO, ENEMY.CARD.C_K, ENEMY.CARD.C_FOUR)),
+             'map2': (),
+             'map3': ()}
+    
+    ENEMY_SPAWN_FREQ = {'map1': 100,
+                        'map2': 100,
+                        'map3': 100}
