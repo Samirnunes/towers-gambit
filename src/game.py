@@ -7,7 +7,7 @@ from player import *
 from enemy_waves import *
 from map import *
 from button import *
-from constants import GAME, MAP
+from constants import GAME, MAP, BUTTON
 
 class Game:
     def __init__(self):
@@ -68,20 +68,24 @@ class Game:
 
         pygame.quit()
         
-    # def start_screen(self):
-    #     '''
-    #     Start screen with two buttons: "start game" and "instructions".
-    #     '''
-    #     start_button = Button(self, 'start', (GAME.WIDTH/2, GAME.HEIGHT/2), (GAME.WIDTH/2, GAME.HEIGHT/2))
-    #     instructions_button = Button(self, 'instructions', (GAME.WIDTH/2, GAME.HEIGHT/2), (GAME.WIDTH/2, GAME.HEIGHT/2))
-    #     running = True
-    #     while running:
-    #         for event in pygame.event.get():
-    #             if event.type == pygame.QUIT:
-    #                 running = False
-    #             if event.type == pygame.MOUSEBUTTONUP:
-    #                 mouse_pos = pygame.mouse.get_pos()
-    #                 if start_button.clicked(mouse_pos):
-    #                     self.run()
-    #                 if instructions_button.clicked(mouse_pos):
-    #                     self.instructions()
+    def start_screen(self):
+        '''
+        Start screen with two buttons: "start game" and "instructions".
+        '''
+        start_button = Button(self, BUTTON.STARTGAME)
+        instructions_button = Button(self, BUTTON.INSTRUCTIONS)
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                if event.type == pygame.MOUSEBUTTONUP:
+                    mouse_pos = pygame.mouse.get_pos()
+                    if start_button.clicked(mouse_pos):
+                        self.run()
+                    if instructions_button.clicked(mouse_pos):
+                        self.instructions()
+            self.window.fill((255, 255, 255))
+            start_button.draw()
+            instructions_button.draw()
+            pygame.display.update()

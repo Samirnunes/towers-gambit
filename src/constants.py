@@ -191,6 +191,18 @@ class BUTTON:
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_ROOK)
+    
+    STARTGAME  = BUTTON(np.array([400, 75]), np.array([384, 400]),
+                        [pygame.image.load(os.path.join('assets', 'user_interface', 'start_game_button.png'))],
+                        [pygame.image.load(os.path.join('assets', 'user_interface', 'start_game_button.png'))])
+    
+    INSTRUCTIONS  = BUTTON(np.array([400, 75]), np.array([384, 500]),
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))],
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))])
+    
+    EXIT = BUTTON(np.array([200, 50]), np.array([50, 50]),
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))],
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))])
 
 class INTERFACE_ALLIES:
     EXTENSION = '.png'

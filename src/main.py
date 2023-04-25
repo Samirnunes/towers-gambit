@@ -1,4 +1,4 @@
 from game import Game
         
 g = Game()
-g.run()
+g.start_screen()
