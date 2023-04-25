@@ -1,6 +1,5 @@
 from entity import *
 from ally import *
-import numpy as np
 from constants import ALLY
 from draggable_ally import *
 

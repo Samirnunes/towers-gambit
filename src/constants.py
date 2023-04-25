@@ -24,19 +24,23 @@ class BULLET:
     class BULLET:
         def __init__(self, SIZE, DAMAGE, PENETRATION, VELOCITY, SPRITES):
             self.SIZE = SIZE
-            self.DAMAGE = 1
-            self.PENETRATION = 1
+            self.DAMAGE = DAMAGE
+            self.PENETRATION = PENETRATION
             self.VELOCITY = VELOCITY
             self.SPRITES = SPRITES
 
+    # Velocity is [Vx, Vy].
     DEFAULT = BULLET(np.array([20, 20]), 1, 1, np.array([120, 0]), [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png'))])
+
+    BISHOP = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png'))])
 
 # Ally constants
 
 class ALLY:
 
     class ALLY:
-        def __init__(self, SIZE, COST, SHOOT_TIME, BULLET, SPRITES):
+        def __init__(self, TYPE, SIZE, COST, SHOOT_TIME, BULLET, SPRITES):
+            self.TYPE = TYPE
             self.SIZE = SIZE
             self.COST = COST
             self.SHOOT_TIME = SHOOT_TIME
@@ -44,21 +48,21 @@ class ALLY:
             self.SPRITES = SPRITES
 
     class PIECE(ALLY):
-        def __init__(self, SIZE, COST, SHOOT_TIME, BULLET, SPRITES):
-            super().__init__(SIZE, COST, SHOOT_TIME, BULLET, SPRITES)
+        def __init__(self, TYPE, SIZE, COST, SHOOT_TIME, BULLET, SPRITES):
+            super().__init__(TYPE, SIZE, COST, SHOOT_TIME, BULLET, SPRITES)
 
-    B_BISHOP = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_bishop.png'))])
-    B_KING   = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_king.png'))])
-    B_KNIGHT = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_knight.png'))])
-    B_PAWN   = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_pawn.png'))])
-    B_QUEEN  = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_queen.png'))])
-    B_ROOK   = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_rook.png'))])
-    W_BISHOP = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_bishop.png'))])
-    W_KING   = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_king.png'))])
-    W_KNIGHT = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_knight.png'))])
-    W_PAWN   = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_pawn.png'))])
-    W_QUEEN  = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_queen.png'))])
-    W_ROOK   = PIECE(np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_rook.png'))])
+    B_BISHOP = PIECE('BISHOP', np.array([25, 50]), 100, 100, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'b_bishop.png'))])
+    B_KING   = PIECE('KING', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_king.png'))])
+    B_KNIGHT = PIECE('KNIGHT', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_knight.png'))])
+    B_PAWN   = PIECE('PAWN', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_pawn.png'))])
+    B_QUEEN  = PIECE('QUEEN', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_queen.png'))])
+    B_ROOK   = PIECE('ROOK', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_rook.png'))])
+    W_BISHOP = PIECE('BISHOP', np.array([25, 50]), 100, 100, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'w_bishop.png'))])
+    W_KING   = PIECE('KING', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_king.png'))])
+    W_KNIGHT = PIECE('KNIGHT', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_knight.png'))])
+    W_PAWN   = PIECE('PAWN', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_pawn.png'))])
+    W_QUEEN  = PIECE('QUEEN', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_queen.png'))])
+    W_ROOK   = PIECE('ROOK', np.array([25, 50]), 100, 100, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_rook.png'))])
 
 class ENEMY:
 
