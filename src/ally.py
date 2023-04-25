@@ -15,7 +15,6 @@ class Ally(Entity):
 
     def update(self):
         super().update()
-        print(self.shoot_clock)
         self.shoot_clock = self.shoot_clock + 1
         if self.shoot_clock == self.shoot_time:
             self.shoot()

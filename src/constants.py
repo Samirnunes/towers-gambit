@@ -11,11 +11,14 @@ class GAME:
     LIVES = 5
     MONEY = 200
 
+class LABELS:
+    LABEL_BACKGROUND_POSITION = (5, 0)
+    LABEL_BACKGROUND_SIZE = (150, 100)
     LABEL_FONT = "Scriptina"
-    LABEL_FONT_SIZE = 30
+    LABEL_FONT_SIZE = 28
     LABEL_FONT_COLOR = (144, 238, 144)
-    LIVES_LABEL_POSITION = (600, 35)
-    MONEY_LABEL_POSITION = (600, 65)
+    LIVES_LABEL_POSITION = (25, 20)
+    MONEY_LABEL_POSITION = (25, 50)
 
 # Bullet constants
 
@@ -145,27 +148,29 @@ class BUTTON:
             super().__init__(SIZE, POS, HOVER_SPRITES, IDLE_SPRITES)
             self.PIECE = PIECE
 
-    BUY_BISHOP = BUYPIECEBUTTON(np.array([80, 80]), np.array([GAME.WIDTH - 40, 120]), 
+    DEFAULT_SIZE = np.array([80, 80])
+
+    BUY_BISHOP = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([40, 140]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_BISHOP)
-    BUY_KING   = BUYPIECEBUTTON(np.array([80, 80]), np.array([GAME.WIDTH - 120, 120]), 
+    BUY_KING   = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([120, 140]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_KING)
-    BUY_KNIGHT = BUYPIECEBUTTON(np.array([80, 80]), np.array([GAME.WIDTH - 40, 200]), 
+    BUY_KNIGHT = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([40, 220]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_KNIGHT)
-    BUY_PAWN   = BUYPIECEBUTTON(np.array([80, 80]), np.array([GAME.WIDTH - 120, 200]), 
+    BUY_PAWN   = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([120, 220]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_PAWN)
-    BUY_QUEEN  = BUYPIECEBUTTON(np.array([80, 80]), np.array([GAME.WIDTH - 40, 280]), 
+    BUY_QUEEN  = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([40, 300]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_QUEEN)
-    BUY_ROOK =   BUYPIECEBUTTON(np.array([80, 80]), np.array([GAME.WIDTH - 120, 280]), 
+    BUY_ROOK =   BUYPIECEBUTTON(DEFAULT_SIZE, np.array([120, 300]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_ROOK)
