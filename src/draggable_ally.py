@@ -14,8 +14,8 @@ class DraggablePiece(Entity):
 
     def update(self):
         self.pos = list(pygame.mouse.get_pos())
-        self.pos[0] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[0] // GAME.TILE_DISCRETE_DIMENSION)
-        self.pos[1] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[1] // GAME.TILE_DISCRETE_DIMENSION)
+        self.pos[0] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[0] // GAME.TILE_DISCRETE_DIMENSION) + GAME.TILE_DISCRETE_DIMENSION/2
+        self.pos[1] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[1] // GAME.TILE_DISCRETE_DIMENSION) + GAME.TILE_DISCRETE_DIMENSION/2
 
     def is_empty_pos(self):
         there_is_not_ally = True
