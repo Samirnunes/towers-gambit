@@ -8,6 +8,7 @@ class GAME:
     HEIGHT = 768
     TILE_WIDTH = 48
     TILE_HEIGHT = 48
+    TILE_DISCRETE_DIMENSION = 48
     LIVES = 5
     MONEY = 200
 

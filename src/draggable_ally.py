@@ -1,6 +1,7 @@
 import pygame
 from entity import *
 from ally import *
+from constants import GAME
 
 class DraggablePiece(Entity):
     def __init__(self, game, PIECE):
@@ -13,8 +14,8 @@ class DraggablePiece(Entity):
 
     def update(self):
         self.pos = list(pygame.mouse.get_pos())
-        self.pos[0] = 48 * (self.pos[0] // 48)
-        self.pos[1] = 48 * (self.pos[1] //48)
+        self.pos[0] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[0] // GAME.TILE_DISCRETE_DIMENSION)
+        self.pos[1] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[1] // GAME.TILE_DISCRETE_DIMENSION)
 
     def on_click(self):
         if self.game.player.money >= self.piece.COST:

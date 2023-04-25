@@ -85,11 +85,10 @@ class Card(Enemy):
         super().receive_damage(damage)
         self.transform()
 
-    @staticmethod
-    def index_lookup(possible_transformations, health):
+    def __index_lookup(self, possible_transformations):
         index = 0
         for card in possible_transformations:
-            if card.HEALTH == health:
+            if card.HEALTH == self.health:
                 return index
             index += 1
 
@@ -97,7 +96,7 @@ class Card(Enemy):
         '''Changes card's image based on its health.'''
 
         possible_transformations = ENEMY.CARD.ALL_CARDS[self.suit]
-        transform_index = Card.index_lookup(possible_transformations, self.health)
+        transform_index = self.__index_lookup(possible_transformations)
         current_pos = self.pos
         current_path_index = self.path_index
         if not transform_index == None: # Não mudar essa condição, porque se transform_index = 0, retorna False!
