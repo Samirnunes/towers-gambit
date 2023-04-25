@@ -18,18 +18,18 @@ class DraggablePiece(Entity):
         self.pos[1] = GAME.TILE_DISCRETE_DIMENSION * (self.pos[1] // GAME.TILE_DISCRETE_DIMENSION)
 
     def is_empty_pos(self):
-        there_is_ally = False
-        there_is_enemy = False
+        there_is_not_ally = True
+        there_is_not_enemy = True
 
         for ally in self.game.allies.get_entities():
             if self.pos == ally.pos:
-                there_is_ally = True
+                there_is_not_ally = False
     
         for enemy in self.game.enemies.get_entities():
-            if self.pos == enemy.pos:
-                there_is_enemy = True
+            if enemy.has_collided(self):
+                there_is_not_enemy = False
             
-        return (there_is_ally and there_is_enemy)
+        return (there_is_not_ally and there_is_not_enemy)
 
     def on_click(self):
         if self.game.player.money >= self.piece.COST and self.is_empty_pos():
