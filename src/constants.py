@@ -192,6 +192,25 @@ class BUTTON:
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_ROOK)
 
+class INTERFACE_ALLIES:
+    EXTENSION = '.png'
+
+    BISHOP = pygame.image.load(os.path.join('assets', 'chess', 'w_bishop' + EXTENSION))
+    KNIGHT = pygame.image.load(os.path.join('assets', 'chess', 'w_knight' + EXTENSION))
+    PAWN = pygame.image.load(os.path.join('assets', 'chess', 'w_pawn' + EXTENSION))
+    QUEEN = pygame.image.load(os.path.join('assets', 'chess', 'w_queen' + EXTENSION))
+    ROOK = pygame.image.load(os.path.join('assets', 'chess', 'w_rook' + EXTENSION))
+
+    IMAGES = [BISHOP, KNIGHT, PAWN, QUEEN, ROOK]
+
+    IMAGE_POSITIONS = (np.array([190, 15]),
+                       np.array([280, 15]),
+                       np.array([370, 18]),
+                       np.array([460, 15]),
+                       np.array([550, 15]))
+
+    IMAGE_SIZE = (40, 40)
+
 class INTERFACE:
 
     BUTTONS = [BUTTON.BUY_BISHOP,  
