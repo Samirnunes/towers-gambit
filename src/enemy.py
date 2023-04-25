@@ -21,7 +21,17 @@ class Enemy(Entity):
             self.game.enemies.remove(self)
         if self.health <= 0:
             self.kill()
+        self.find_and_react_after_collision()
         self.move()
+
+    def find_and_react_after_collision(self): # This function is faster here in enemy! So, don't put it in ally.
+        for ally in self.game.allies.get_entities():
+            if self.has_collided(ally):
+                if ally.type == 'PAWN':
+                    self.receive_damage(1)
+                if ally.type != 'KING': # King doesn't receive damage because the damage is inflicted on the player.
+                    ally.receive_damage(1)
+                break
 
     def move(self):
         '''

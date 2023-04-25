@@ -1,6 +1,5 @@
 from entity import *
 from bullet import *
-from constants import ALLY
 import numpy as np
 
 class Ally(Entity):
@@ -38,20 +37,12 @@ class Piece(Ally):
     def update(self):
         super().update()
         self.behavior()
+        print(self.health)
         if self.health == 0:
             self.kill()
 
     def receive_damage(self, damage):
         self.health -= damage
-
-    def find_and_react_after_collision(self):
-        for enemy in self.game.enemies.get_entities():
-            if self.has_collided(enemy):
-                if self.type == 'PAWN':
-                    enemy.receive_damage(1)
-                if self.type != 'KING': # King doesn't receive damage because the damage is inflicted on the player.
-                    self.receive_damage(1)
-                break
 
     def kill(self):
         self.game.allies.remove(self)
@@ -98,4 +89,3 @@ class Piece(Ally):
                 theta = np.pi/2
                 rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
                 self.bullet.VELOCITY = np.dot(rot, self.bullet.VELOCITY)
-                self.find_and_react_after_collision()
