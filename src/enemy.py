@@ -23,18 +23,6 @@ class Enemy(Entity):
             self.kill()
         self.move()
 
-
-    def kill(self):
-        '''
-        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
-        '''
-        self.health = 0
-        if self.pos != list(self.path[-1]):
-            money = 5*self.CARD.HEALTH + self.velocity #can be modified later to make it more playable
-            print(money)
-            self.game.player.add_money(money)
-        self.game.enemies.remove(self)
-
     def move(self):
         '''
         Moves enemy in a iteration of the game loop.
@@ -80,6 +68,7 @@ class Card(Enemy):
         self.velocity = CARD.VELOCITY
         self.size = CARD.SIZE
         self.suit = CARD.SUIT
+        self.prize = CARD.PRIZE
         self.CARD = CARD
 
     def receive_damage(self, damage):
@@ -100,10 +89,19 @@ class Card(Enemy):
         transform_index = self.__index_lookup(possible_transformations)
         current_pos = self.pos
         current_path_index = self.path_index
+        current_prize = self.prize
         if not transform_index == None: # Não mudar essa condição, porque se transform_index = 0, retorna False!
             self.game.enemies.remove(self)
             self = Card(self.game, possible_transformations[transform_index])
             self.pos = current_pos
             self.path_index = current_path_index
+            self.prize = current_prize
             
-            
+    def kill(self):
+        '''
+        Cleanup actions. 'alive' should be called before to check if the enmy is dead.
+        '''
+        self.health = 0
+        if self.pos != list(self.path[-1]):
+            self.game.player.add_money(self.prize)
+        self.game.enemies.remove(self)
