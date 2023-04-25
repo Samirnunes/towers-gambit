@@ -14,6 +14,9 @@ class Player:
     def add_money(self, money):
         self.money += money
 
+    def decrease_money(self, money):
+        self.money -= money
+
     def receive_damage(self):
         if self.lives > 0:
             self.lives -= 1

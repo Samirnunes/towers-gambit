@@ -18,4 +18,5 @@ class DraggablePiece(Entity):
 
     def on_click(self):
         Piece(self.game, self.pos, self.piece)
+        self.game.player.decrease_money(self.piece.COST)
         self.game.draggables.remove(self)
