@@ -14,12 +14,13 @@ class GAME:
 
 class LABELS:
     LABEL_BACKGROUND_POSITION = (5, 0)
-    LABEL_BACKGROUND_SIZE = (150, 100)
+    LABEL_BACKGROUND_SIZE = (160, 110)
     LABEL_FONT = "Scriptina"
-    LABEL_FONT_SIZE = 28
-    LABEL_FONT_COLOR = (144, 238, 144)
-    LIVES_LABEL_POSITION = (25, 20)
-    MONEY_LABEL_POSITION = (25, 50)
+    LABEL_FONT_SIZE = 24
+    #LABEL_FONT_COLOR = (144, 238, 144)
+    LABEL_FONT_COLOR = (255, 255, 255)
+    LIVES_LABEL_POSITION = (25, 30)
+    MONEY_LABEL_POSITION = (25, 60)
 
 # Bullet constants
 
@@ -170,35 +171,30 @@ class BUTTON:
 
     DEFAULT_SIZE = np.array([80, 80])
 
-    BUY_BISHOP = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([40, 140]), 
+    BUY_BISHOP = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([210, 40]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_BISHOP)
-    BUY_KING   = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([120, 140]), 
-                               [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
-                               [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
-                                ALLY.W_KING)
-    BUY_KNIGHT = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([40, 220]), 
+    BUY_KNIGHT = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([300, 40]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_KNIGHT)
-    BUY_PAWN   = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([120, 220]), 
+    BUY_PAWN   = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([390, 40]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_PAWN)
-    BUY_QUEEN  = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([40, 300]), 
+    BUY_QUEEN  = BUYPIECEBUTTON(DEFAULT_SIZE, np.array([480, 40]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_QUEEN)
-    BUY_ROOK =   BUYPIECEBUTTON(DEFAULT_SIZE, np.array([120, 300]), 
+    BUY_ROOK =   BUYPIECEBUTTON(DEFAULT_SIZE, np.array([570, 40]), 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button_clicked.png'))], 
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_ROOK)
 
 class INTERFACE:
 
-    BUTTONS = [BUTTON.BUY_BISHOP, 
-               BUTTON.BUY_KING, 
+    BUTTONS = [BUTTON.BUY_BISHOP,  
                BUTTON.BUY_KNIGHT, 
                BUTTON.BUY_PAWN, 
                BUTTON.BUY_QUEEN, 
@@ -207,7 +203,7 @@ class INTERFACE:
 # Map constants
 
 class MAP:
-    PATHS = {'map1': ((4, 564), (293, 566), (290, 747), (496, 749), (492, 500), (633, 496), (631, 340), (764, 338)),
+    PATHS = {'map1': ((1, 310), (124, 314), (126, 599), (269, 598), (271, 360), (460, 357), (464, 215), (558, 216), (558, 122), (700, 125), (700, 306), (611, 310), (608, 500), (761, 508)),
              'map2': ((0,0)), 
              'map3': ((0,0))}
     
