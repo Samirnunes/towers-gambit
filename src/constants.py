@@ -200,9 +200,9 @@ class BUTTON:
                     [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))],
                     [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))])
     
-    EXIT = BUTTON(np.array([200, 50]), np.array([50, 50]),
-                    [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))],
-                    [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))])
+    EXIT = BUTTON(np.array([200, 50]), np.array([200, 50]),
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'exit_button.png'))],
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'exit_button.png'))])
 
 class INTERFACE_ALLIES:
     EXTENSION = '.png'

@@ -86,6 +86,34 @@ class Game:
                     if instructions_button.clicked(mouse_pos):
                         self.instructions()
             self.window.fill((255, 255, 255))
+            title = pygame.image.load(os.path.join('assets', 'user_interface', 'title.png'))
+            title = pygame.transform.scale(title, (title.get_width()/1.5, title.get_height()/1.5))
+            self.window.blit(title, (GAME.WIDTH/2 - title.get_width()/2, 100))
             start_button.draw()
             instructions_button.draw()
             pygame.display.update()
+            
+        pygame.quit()
+            
+            
+    def instructions(self):
+        '''
+        Instructions screen.
+        '''
+        exit_button = Button(self, BUTTON.EXIT)
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                if event.type == pygame.MOUSEBUTTONUP:
+                    mouse_pos = pygame.mouse.get_pos()
+                    if exit_button.clicked(mouse_pos):
+                        self.start_screen()
+            self.window.fill((255, 255, 255))
+            exit_button.draw()
+            title = pygame.image.load(os.path.join('assets', 'user_interface', 'instructions.png'))
+            self.window.blit(title, (GAME.WIDTH/2 - title.get_width()/2, 100))
+            pygame.display.update()
+            
+    pygame.quit()
