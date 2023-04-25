@@ -20,7 +20,7 @@ class Enemy(Entity):
             self.game.player.receive_damage()
             self.game.enemies.remove(self)
         if self.health <= 0:
-            self.game.enemies.remove(self)
+            self.kill()
         self.move()
 
 
@@ -31,6 +31,7 @@ class Enemy(Entity):
         self.health = 0
         if self.pos != list(self.path[-1]):
             money = 5*self.CARD.HEALTH + self.velocity #can be modified later to make it more playable
+            print(money)
             self.game.player.add_money(money)
         self.game.enemies.remove(self)
 
