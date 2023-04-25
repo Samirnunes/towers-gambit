@@ -17,6 +17,7 @@ class DraggablePiece(Entity):
         self.pos[1] = 48 * (self.pos[1] //48)
 
     def on_click(self):
-        Piece(self.game, self.pos, self.piece)
-        self.game.player.decrease_money(self.piece.COST)
+        if self.game.player.money >= self.piece.COST:
+            Piece(self.game, self.pos, self.piece)
+            self.game.player.decrease_money(self.piece.COST)
         self.game.draggables.remove(self)
