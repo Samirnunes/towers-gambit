@@ -12,7 +12,9 @@ class DraggablePiece(Entity):
         self.game.draggables.append(self)
 
     def update(self):
-        self.pos = pygame.mouse.get_pos()
+        self.pos = list(pygame.mouse.get_pos())
+        self.pos[0] = 48 * (self.pos[0] // 48)
+        self.pos[1] = 48 * (self.pos[1] //48)
 
     def on_click(self):
         Piece(self.game, self.pos, self.piece)

@@ -27,7 +27,7 @@ class Entity:
 
     def has_collided(self, other):
         '''
-        Returns if position has hit the entity.
+        Returns if another entity position has hit the entity.
         '''
         bottom_left = self.pos - self.size/2
         top_right = self.pos + self.size/2
