@@ -37,7 +37,6 @@ class Piece(Ally):
     def update(self):
         super().update()
         self.behavior()
-        print(self.health)
         if self.health == 0:
             self.kill()
 

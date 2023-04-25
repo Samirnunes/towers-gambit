@@ -34,9 +34,19 @@ class BULLET:
             self.SPRITES = SPRITES
 
     # Velocity is [Vx, Vy].
-    DEFAULT = BULLET(np.array([20, 20]), 1, 1, np.array([120, 0]), [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png'))])
+    DEFAULT = BULLET(np.array([20, 20]), 1, 1, np.array([120, 0]), [pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet1.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet2.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet3.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet4.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet5.png')),
+                                                                    ])
 
-    BISHOP = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), [pygame.image.load(os.path.join('assets', 'arrows', 'arrow1_1.png'))])
+    BISHOP = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]),[pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet1.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet2.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet3.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet4.png')),
+                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet5.png')),
+                                                                    ])
 
 # Ally constants
 

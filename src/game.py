@@ -67,3 +67,21 @@ class Game:
             pygame.display.update()
 
         pygame.quit()
+        
+    # def start_screen(self):
+    #     '''
+    #     Start screen with two buttons: "start game" and "instructions".
+    #     '''
+    #     start_button = Button(self, 'start', (GAME.WIDTH/2, GAME.HEIGHT/2), (GAME.WIDTH/2, GAME.HEIGHT/2))
+    #     instructions_button = Button(self, 'instructions', (GAME.WIDTH/2, GAME.HEIGHT/2), (GAME.WIDTH/2, GAME.HEIGHT/2))
+    #     running = True
+    #     while running:
+    #         for event in pygame.event.get():
+    #             if event.type == pygame.QUIT:
+    #                 running = False
+    #             if event.type == pygame.MOUSEBUTTONUP:
+    #                 mouse_pos = pygame.mouse.get_pos()
+    #                 if start_button.clicked(mouse_pos):
+    #                     self.run()
+    #                 if instructions_button.clicked(mouse_pos):
+    #                     self.instructions()
