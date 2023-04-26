@@ -1,6 +1,7 @@
 from entity import *
 from bullet import *
 import numpy as np
+import copy
 
 class Ally(Entity):
     
@@ -26,7 +27,7 @@ class Piece(Ally):
     def __init__(self, game, pos, PIECE):
         super().__init__(game)
         self.type = PIECE.TYPE
-        self.bullet = PIECE.BULLET
+        self.bullet = copy.copy(PIECE.BULLET)
         self.cost = PIECE.COST
         self.sprites = PIECE.SPRITES
         self.pos = pos
@@ -76,13 +77,11 @@ class Piece(Ally):
                 self.bullet.VELOCITY = np.dot(rot, self.bullet.VELOCITY)
 
             elif self.type == 'KNIGHT':
-                initial_velocity = self.bullet.VELOCITY
                 for i in range(1, 3):
-                    theta = (-1)**(i) * np.pi/4
+                    theta = np.pi/4
                     rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
                     self.bullet.VELOCITY = np.dot(rot, self.bullet.VELOCITY)
                     self.shoot()
-                    self.bullet.VELOCITY = initial_velocity
 
             elif self.type == 'PAWN':
                 theta = np.pi/2

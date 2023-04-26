@@ -45,10 +45,6 @@ class BULLET:
     # Velocity is [Vx, Vy].
     DEFAULT = BULLET(np.array([20, 20]), 1, 1, np.array([120, 0]), BULLETASSET)
     BISHOP = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
-    KNIGHT = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
-    PAWN = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
-    QUEEN = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
-    ROOK = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
 
 # Ally constants
 
@@ -69,7 +65,7 @@ class ALLY:
             super().__init__(TYPE, SIZE, COST, SHOOT_TIME, HEALTH, BULLET, SPRITES)
 
     B_BISHOP = PIECE('BISHOP', np.array([40, 40]), 200, 120, 1, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'b_bishop.png'))])
-    B_KING   = PIECE('KING', np.array([40, 40]), 10000, 120, 9999, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_king.png'))])
+    B_KING   = PIECE('KING', np.array([40, 40]), 10000, 300, 9999, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_king.png'))])
     B_KNIGHT = PIECE('KNIGHT', np.array([40, 40]), 100, 120, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_knight.png'))])
     B_PAWN   = PIECE('PAWN', np.array([40, 40]), 50, 60, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_pawn.png'))])
     B_QUEEN  = PIECE('QUEEN', np.array([40, 40]), 500, 180, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_queen.png'))])
@@ -262,7 +258,8 @@ class MAP:
     WAVES = {'map1': ([ENEMY.CARD.S_A, ENEMY.CARD.S_A, ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],
                      [ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO, ENEMY.CARD.S_THREE, ENEMY.CARD.S_THREE, ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FOUR],
                      [ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FIVE, ENEMY.CARD.S_SIX, ENEMY.CARD.C_A, ENEMY.CARD.C_A, ENEMY.CARD.C_TWO, ENEMY.CARD.S_SEVEN, ENEMY.CARD.S_SEVEN],
-                     [ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.C_FOUR, ENEMY.CARD.C_FOUR, ENEMY.CARD.C_FIVE, ENEMY.CARD.C_FIVE, ENEMY.CARD.C_SIX, ENEMY.CARD.C_SIX, ENEMY.CARD.H_A, ENEMY.CARD.H_A, ENEMY.CARD.H_TWO, ENEMY.CARD.H_TWO, ENEMY.CARD.S_J],), 
+                     [ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.C_FOUR, ENEMY.CARD.C_FOUR, ENEMY.CARD.C_FIVE, ENEMY.CARD.C_FIVE, ENEMY.CARD.C_SIX, ENEMY.CARD.C_SIX, ENEMY.CARD.H_A, ENEMY.CARD.H_A, ENEMY.CARD.H_TWO, ENEMY.CARD.H_TWO, ENEMY.CARD.S_J],
+                     [ENEMY.CARD.H_TWO, ENEMY.CARD.D_TWO, ENEMY.CARD.S_NINE, ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.S_TEN, ENEMY.CARD.H_FOUR, ENEMY.CARD.D_THREE, ENEMY.CARD.D_FOUR, ENEMY.CARD.D_FOUR, ENEMY.CARD.H_SIX]), 
              'map2': (),
              'map3': ()}
     
