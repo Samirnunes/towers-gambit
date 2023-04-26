@@ -2,6 +2,10 @@
 
 Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação Orientada a Objetos) no ITA.
 
+## Apresentação no Google Slides
+
+**Link**: https://docs.google.com/presentation/d/1_lHMNBS4p0gH9NPpQOGCS_4QjJc6JuBFFhQONNVSnN8/edit?usp=sharing
+
 ## Características Principais
 
 - **Formato**: Tower Defense.
