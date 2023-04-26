@@ -3,10 +3,8 @@
 Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação Orientada a Objetos) no ITA.
 
 <p align="center">
-    <img width="400" src="https://github.com/Samirnunes/towers_gambit_project_CSI-22/blob/main/readme_images/gameplay.png" alt="Material Bread logo">
+    <img width="600" src="https://github.com/Samirnunes/towers_gambit_project_CSI-22/blob/main/readme_images/gameplay.png" alt="Material Bread logo">
 <p>
-
-a
 
 ## Grupo e Contato
 
@@ -66,4 +64,6 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 
 - Baseada em docstrings no próprio código.
 
-### 
+### Artes
+
+- Foram utilizados assets gratuitos.
