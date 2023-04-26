@@ -4,6 +4,15 @@ from constants import GAME
 class Bullet(Entity):
     
     def __init__(self, game, pos, BULLET):
+        """
+        Constructor for the Bullet class.
+        
+        Parameters:
+        game (Game): The instance of the game currently running.
+        pos (tuple): The (x, y) position where the bullet is spawned.
+        BULLET (class): A dictionary containing the attributes of the bullet. The class
+                       contains the following attributes: DAMAGE, PENETRATION, SIZE, SPRITES, and VELOCITY.
+        """
         super().__init__(game)
         self.collided_enemies = []
         self.damage = BULLET.DAMAGE
@@ -15,6 +24,9 @@ class Bullet(Entity):
         game.bullets.append(self)
 
     def update(self):
+        """
+        Updates the bullet in a single iteration of the game loop.
+        """
         super().update()
         self.move()
         for enemy in self.game.enemies.get_entities():
@@ -28,7 +40,7 @@ class Bullet(Entity):
             del self
 
     def move(self):
-        '''
-        Moves bullet in a iteration of the game loop.
-        '''
+        """
+        Moves the bullet in a single iteration of the game loop.
+        """
         self.pos = self.pos + self.velocity/GAME.FRAMERATE
