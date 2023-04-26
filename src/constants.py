@@ -227,6 +227,20 @@ class INTERFACE_ALLIES:
                        np.array([550, 15]))
 
     IMAGE_SIZE = (40, 40)
+    
+    BISHOP_TEXT = f'{ALLY.W_BISHOP.COST}'
+    KNIGHT_TEXT = f'{ALLY.W_KNIGHT.COST}'
+    PAWN_TEXT = f'{ALLY.W_PAWN.COST}'
+    QUEEN_TEXT = f'{ALLY.W_QUEEN.COST}'
+    ROOK_TEXT = f'{ALLY.W_ROOK.COST}'
+
+    LABEL_FONT = "Scriptina"
+    LABEL_FONT_SIZE = 20
+    LABEL_FONT_COLOR = (255, 255, 255)
+
+    COST_TEXTS = [BISHOP_TEXT, KNIGHT_TEXT, PAWN_TEXT, QUEEN_TEXT, ROOK_TEXT]
+
+    COST_TEXT_POSITIONS = tuple((position + np.array([10, 40]) for position in IMAGE_POSITIONS))
 
 class INTERFACE:
 

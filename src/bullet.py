@@ -1,5 +1,5 @@
 from entity import Entity
-from constants import GAME, BULLET
+from constants import GAME
 
 class Bullet(Entity):
     
@@ -23,6 +23,10 @@ class Bullet(Entity):
                 self.collided_enemies.append(enemy)
                 if len(self.collided_enemies) == self.penetration:
                     self.game.bullets.remove(self)
+
+        if not(0 <= self.pos[0] <= GAME.WIDTH) or not(0 <= self.pos[1] <= GAME.HEIGHT):
+            self.game.bullets.remove(self)
+            del self
 
     def move(self):
         '''

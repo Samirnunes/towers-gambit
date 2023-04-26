@@ -39,8 +39,6 @@ class Game:
         self.draggables.draw()
         self.waves.draw()
             
-            
-
     def run(self):
         '''
         Runs the game loop.

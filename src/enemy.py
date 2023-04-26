@@ -115,3 +115,4 @@ class Card(Enemy):
         if self.pos != list(self.path[-1]):
             self.game.player.add_money(self.prize)
         self.game.enemies.remove(self)
+        del self
