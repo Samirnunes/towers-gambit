@@ -1,20 +1,39 @@
-# Projeto de CSI-22: Jogo com Pygame e POO (Programação Orientada a Objetos)
+# TOWER'S GAMBIT
 
-### Pré-projeto:
+Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação Orientada a Objetos) no ITA.
 
-- Formato: Tower Defense
- 
-- Temática: Xadrez/Cartas de Baralho
+## Características Principais
 
- - Formato: Tabuleiro grande com detalhes de gramas, vários caminhos em diversas direções, construímos nossos aliados.
+- Formato: Tower Defense.
  
-- Personagens/objetos jogáveis: torres (ataca com flechas na horizontal e vertical), peões (colocados nos caminhos, vão avançando e atacando os inimigos), cavalos (cavalo vai pulando e dá dano em área - ou poder ou torre com cooldown grande), bispos (atacam a distância na diagonal com projéteis) e dama (seria nossa "heroína" e teria o poder de tirar 1 vida dos inimigos numa área específica em todas as direções).
- 
-- Inimigos: cartas de baralho. Força das cartas baseada nos números e naipes.
- 
-- Mecânicas principais: upgrade das torres; poderes de soltar mobs aliados (peões), melhorar os atributos das torres, dar dano aos inimigos.
+- Temática: Xadrez/Cartas de Baralho.
 
-- Objetivo: defender o rei, que tem uma quantidade definida de vidas.
+- Objetivo: proteger o Rei do ataque das Cartas.
+
+- Aliados: 
+    Peças especiais: 
+    Rei: Não morre, se algum inimigo chegar até ele, o jogador perde 1 vida.
+    Peão: Pode dar dano no inimigo ao se sacrificar.
+    
+    Peças de ataque:
+    Torre: Ataca na horizontal e vertical.
+    Bispo: Ataca nas diagonais.
+    Rainha: Junta o ataque da torre e do bispo.
+    Cavalo: Ataca em diversas direções de 45º.
+ 
+- Inimigos: cartas de baralho. Vida das cartas baseada nos números e naipes.
+ 
+- Mecânicas principais: 
+     O Player pode comprar aliados gastando seu dinheiro e tem um número limitado de vidas. 
+
+     Os aliados só podem ser colocados em locais válidos: onde não há outro aliado ou um inimigo.
+
+     Inimigos se transformam em cartas de menor número quando tomam dano.
+
+     Aliados podem ser colocados no caminho dos inimigos, mas morrem se colidirem com eles. 
+     O caso especial é do Peão, que tem mais vidas e dá dano no inimigo com o qual colidiu.
+
+     O Rei sempre está presente e tenta se proteger com projéteis fracos, mas o Player não pode invocar outro.
 
 ### Referências
 
@@ -23,23 +42,3 @@
 - Jogo de Xadrez
 
 - Jogos de Baralho
- 
-### Definições de Arte:
-
-- Conjunto de Sprites: 
-
-Allies: https://dani-maccari.itch.io/pixel-chess, https://bzgamedev.itch.io/pixel-art-chess-set (animado)
-
-(Knight (Cavalo); Bishop (Bispo); Tower (Torre); Pawn (Peão); Queen (Dama); King (Rei))
-
-Magic Bullet: https://bdragon1727.itch.io/fire-pixel-bullet-16x16
-
-Terrain: https://grumpydiamond.itch.io/small-grass-tileset-16x16
-
-Enemies: https://treemolo.itch.io/card-decks
-
-### Links com Assets Gratuitos: 
-
-- https://opengameart.org/
-- https://www.gameart2d.com/
-- https://www.kenney.nl/
