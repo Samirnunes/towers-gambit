@@ -122,9 +122,13 @@ class Piece(Ally):
         Returns:
         - None
         """
+        # If it's time to shoot:
         if self.shoot_clock == self.shoot_time:
             self.shoot_clock = 0
+            
+            # Behavior of each type of Piece:
             if self.type == 'BISHOP':
+                # Shoot 3 bullets, each rotated by 90 degrees from the last
                 for i in range(1, 4):
                     theta = np.pi/2
                     rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
@@ -132,6 +136,7 @@ class Piece(Ally):
                     self.shoot()
 
             elif self.type == 'QUEEN':
+                # Shoot 8 bullets, each rotated by 45 degrees from the last
                 for i in range(1, 8):
                     theta = np.pi/4
                     rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
@@ -139,6 +144,7 @@ class Piece(Ally):
                     self.shoot()
 
             elif self.type == 'ROOK':
+                # Shoot 3 bullets, each rotated by 90 degrees from the last
                 for i in range(1, 4):
                     theta = np.pi/2
                     rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
@@ -146,11 +152,13 @@ class Piece(Ally):
                     self.shoot()
 
             elif self.type == 'KING':
+                # Shoot 1 bullet, rotated by 90 degrees
                 theta = np.pi/2
                 rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
                 self.bullet.VELOCITY = np.dot(rot, self.bullet.VELOCITY)
 
             elif self.type == 'KNIGHT':
+                # Shoot 2 bullets, each rotated by 45 degrees from the last
                 for i in range(1, 3):
                     theta = np.pi/4
                     rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
@@ -158,6 +166,7 @@ class Piece(Ally):
                     self.shoot()
 
             elif self.type == 'PAWN':
+                # Shoot 1 bullet, rotated by 90 degrees
                 theta = np.pi/2
                 rot = np.array([[np.cos(theta), -np.sin(theta)], [np.sin(theta), np.cos(theta)]])
                 self.bullet.VELOCITY = np.dot(rot, self.bullet.VELOCITY)
