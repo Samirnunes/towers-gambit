@@ -37,6 +37,9 @@ class Game:
         self.bullets.draw()
         self.player.interface.draw() # displays updated user interface
         self.draggables.draw()
+        self.waves.draw()
+            
+            
 
     def run(self):
         '''
@@ -97,8 +100,7 @@ class Game:
             credits_button.draw()
             pygame.display.update()
             
-        pygame.quit()
-            
+        pygame.quit()      
             
     def instructions(self):
         '''

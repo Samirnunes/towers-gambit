@@ -11,16 +11,17 @@ class GAME:
     TILE_DISCRETE_DIMENSION = 48
     LIVES = 5
     MONEY = 3000
+    INTERWAVE_COUNT = 900
 
 class LABELS:
     LABEL_BACKGROUND_POSITION = (5, 0)
     LABEL_BACKGROUND_SIZE = (160, 110)
     LABEL_FONT = "Scriptina"
     LABEL_FONT_SIZE = 24
-    #LABEL_FONT_COLOR = (144, 238, 144)
     LABEL_FONT_COLOR = (255, 255, 255)
     LIVES_LABEL_POSITION = (25, 30)
     MONEY_LABEL_POSITION = (25, 60)
+    INTERWAVE_LABEL_POSITION = (625, 20)
 
 # Bullet constants
 
@@ -244,7 +245,7 @@ class MAP:
     
     # Mantenha tuplas de listas em waves para não dar erro no caso em que a wave só tiver 1 inimigo!
     # Pois quando tem tupla de tupla de 1 só elemento, Python interpreta como tupla de 1 elemento.
-    WAVES = {'map1': ([ENEMY.CARD.S_TWO],
+    WAVES = {'map1': ([ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],
                      [ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FOUR],
                      [ENEMY.CARD.S_FIVE, ENEMY.CARD.S_SIX, ENEMY.CARD.S_TWO],
                      [ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],), 
