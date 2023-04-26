@@ -19,6 +19,10 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 **Link**: https://docs.google.com/presentation/d/1_lHMNBS4p0gH9NPpQOGCS_4QjJc6JuBFFhQONNVSnN8/edit?usp=sharing
 
 ## Características Principais
+    
+- **Linguagem de Programação**: Python.
+   
+- **Biblioteca Principal**: Pygame.
 
 - **Formato**: Tower Defense.
  
