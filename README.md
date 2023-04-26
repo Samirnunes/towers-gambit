@@ -66,4 +66,4 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 
 ### Artes
 
-- Foram utilizados assets gratuitos.
+- Foram utilizados assets gratuitos da internet para compor a arte do jogo.
