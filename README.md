@@ -10,6 +10,11 @@ Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação O
 
 - Objetivo: proteger o Rei do ataque das Cartas.
 
+* Fruit
+  * Apple
+  * Orange
+  * Banana
+
 - Aliados: 
  - Peças especiais: 
   - Rei: Não morre, se algum inimigo chegar até ele, o jogador perde 1 vida.
