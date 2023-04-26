@@ -68,13 +68,13 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 
 - Baseada em docstrings no próprio código.
 
-- Arquivos principais: 
+- **Arquivos principais**: 
 
-    - main.py: utilizado para iniciar o jogo, ao ser rodado.
+    - **main.py**: utilizado para iniciar o jogo, ao ser rodado.
     
-    - game.py: arquivo central contendo a classe Game. Tal classe permeia todo o desenvolvimento, pois uma instânia sua pode ser acessada por qualquer outra classe.
+    - **game.py**: arquivo central contendo a classe Game. Tal classe permeia todo o desenvolvimento, pois uma instânia sua pode ser acessada por qualquer outra classe.
     
-    - constants.py: arquivo central contendo todas as constantes, separadas por namespaces das classes. Utilizado para alterar características essenciais do game, tais como framerate, tamanho da tela e balanceamento no geral.
+    - **constants.py**: arquivo central contendo todas as constantes, separadas por namespaces das classes. Utilizado para alterar características essenciais do game, tais como framerate, tamanho da tela e balanceamento no geral.
     
 ### Artes
 
