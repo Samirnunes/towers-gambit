@@ -11,7 +11,7 @@ class GAME:
     TILE_DISCRETE_DIMENSION = 48
     LIVES = 5
     MONEY = 300
-    INTERWAVE_COUNT = 900
+    INTERWAVE_COUNT = 600
 
 class LABELS:
     LABEL_BACKGROUND_POSITION = (5, 0)
@@ -34,21 +34,21 @@ class BULLET:
             self.PENETRATION = PENETRATION
             self.VELOCITY = VELOCITY
             self.SPRITES = SPRITES
+    
+    BULLETASSET = [pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet1.png')),
+                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet2.png')),
+                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet3.png')),
+                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet4.png')),
+                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet5.png')),
+                    ]
 
     # Velocity is [Vx, Vy].
-    DEFAULT = BULLET(np.array([20, 20]), 1, 1, np.array([120, 0]), [pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet1.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet2.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet3.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet4.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet5.png')),
-                                                                    ])
-
-    BISHOP = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]),[pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet1.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet2.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet3.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet4.png')),
-                                                                    pygame.image.load(os.path.join('assets', 'fire_bullets', 'bullet5.png')),
-                                                                    ])
+    DEFAULT = BULLET(np.array([20, 20]), 1, 1, np.array([120, 0]), BULLETASSET)
+    BISHOP = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
+    KNIGHT = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
+    PAWN = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
+    QUEEN = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
+    ROOK = BULLET(np.array([20, 20]), 1, 1, np.array([120, -120]), BULLETASSET)
 
 # Ally constants
 
@@ -68,18 +68,18 @@ class ALLY:
         def __init__(self, TYPE, SIZE, COST, SHOOT_TIME, HEALTH, BULLET, SPRITES):
             super().__init__(TYPE, SIZE, COST, SHOOT_TIME, HEALTH, BULLET, SPRITES)
 
-    B_BISHOP = PIECE('BISHOP', np.array([40, 40]), 100, 100, 1, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'b_bishop.png'))])
-    B_KING   = PIECE('KING', np.array([40, 40]), 100, 100, 9999, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_king.png'))])
-    B_KNIGHT = PIECE('KNIGHT', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_knight.png'))])
-    B_PAWN   = PIECE('PAWN', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_pawn.png'))])
-    B_QUEEN  = PIECE('QUEEN', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_queen.png'))])
-    B_ROOK   = PIECE('ROOK', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_rook.png'))])
-    W_BISHOP = PIECE('BISHOP', np.array([40, 40]), 100, 100, 1, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'w_bishop.png'))])
-    W_KING   = PIECE('KING', np.array([40, 40]), 100, 100, 9999, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_king.png'))])
-    W_KNIGHT = PIECE('KNIGHT', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_knight.png'))])
-    W_PAWN   = PIECE('PAWN', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_pawn.png'))])
-    W_QUEEN  = PIECE('QUEEN', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_queen.png'))])
-    W_ROOK   = PIECE('ROOK', np.array([40, 40]), 100, 100, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_rook.png'))])
+    B_BISHOP = PIECE('BISHOP', np.array([40, 40]), 200, 120, 1, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'b_bishop.png'))])
+    B_KING   = PIECE('KING', np.array([40, 40]), 10000, 120, 9999, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_king.png'))])
+    B_KNIGHT = PIECE('KNIGHT', np.array([40, 40]), 100, 120, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_knight.png'))])
+    B_PAWN   = PIECE('PAWN', np.array([40, 40]), 50, 60, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_pawn.png'))])
+    B_QUEEN  = PIECE('QUEEN', np.array([40, 40]), 500, 180, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_queen.png'))])
+    B_ROOK   = PIECE('ROOK', np.array([40, 40]), 200, 120, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'b_rook.png'))])
+    W_BISHOP = PIECE('BISHOP', np.array([40, 40]), 200, 120, 1, BULLET.BISHOP, [pygame.image.load(os.path.join('assets', 'chess', 'w_bishop.png'))])
+    W_KING   = PIECE('KING', np.array([40, 40]), 10000, 120, 9999, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_king.png'))])
+    W_KNIGHT = PIECE('KNIGHT', np.array([40, 40]), 100, 120, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_knight.png'))])
+    W_PAWN   = PIECE('PAWN', np.array([40, 40]), 50, 60, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_pawn.png'))])
+    W_QUEEN  = PIECE('QUEEN', np.array([40, 40]), 500, 180, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_queen.png'))])
+    W_ROOK   = PIECE('ROOK', np.array([40, 40]), 200, 120, 1, BULLET.DEFAULT, [pygame.image.load(os.path.join('assets', 'chess', 'w_rook.png'))])
 
 class ENEMY:
 
@@ -94,58 +94,58 @@ class ENEMY:
                 self.PRIZE = PRIZE
                 self.SPRITES = SPRITES
 
-        S_A     = CARD('S', np.array([25, 30]),  1,  10, 10, [pygame.image.load(os.path.join('assets', 'cards', 's_a.png'))])
-        S_TWO   = CARD('S', np.array([25, 30]),  2,  10, 20, [pygame.image.load(os.path.join('assets', 'cards', 's_two.png'))])
-        S_THREE = CARD('S', np.array([25, 30]),  3,  10, 30, [pygame.image.load(os.path.join('assets', 'cards', 's_three.png'))])
-        S_FOUR  = CARD('S', np.array([25, 30]),  4,  10, 40, [pygame.image.load(os.path.join('assets', 'cards', 's_four.png'))])
-        S_FIVE  = CARD('S', np.array([25, 30]),  5,  10, 50, [pygame.image.load(os.path.join('assets', 'cards', 's_five.png'))])
-        S_SIX   = CARD('S', np.array([25, 30]),  6,  10, 60, [pygame.image.load(os.path.join('assets', 'cards', 's_six.png'))])
-        S_SEVEN = CARD('S', np.array([25, 30]),  7,  10, 70, [pygame.image.load(os.path.join('assets', 'cards', 's_seven.png'))])
-        S_EIGHT = CARD('S', np.array([25, 30]),  8,  10, 80, [pygame.image.load(os.path.join('assets', 'cards', 's_eight.png'))])
-        S_NINE  = CARD('S', np.array([25, 30]),  9,  10, 90, [pygame.image.load(os.path.join('assets', 'cards', 's_nine.png'))])
+        S_A     = CARD('S', np.array([25, 30]),  1,  20, 10, [pygame.image.load(os.path.join('assets', 'cards', 's_a.png'))])
+        S_TWO   = CARD('S', np.array([25, 30]),  2,  20, 20, [pygame.image.load(os.path.join('assets', 'cards', 's_two.png'))])
+        S_THREE = CARD('S', np.array([25, 30]),  3,  20, 30, [pygame.image.load(os.path.join('assets', 'cards', 's_three.png'))])
+        S_FOUR  = CARD('S', np.array([25, 30]),  4,  20, 40, [pygame.image.load(os.path.join('assets', 'cards', 's_four.png'))])
+        S_FIVE  = CARD('S', np.array([25, 30]),  5,  20, 50, [pygame.image.load(os.path.join('assets', 'cards', 's_five.png'))])
+        S_SIX   = CARD('S', np.array([25, 30]),  6,  15, 60, [pygame.image.load(os.path.join('assets', 'cards', 's_six.png'))])
+        S_SEVEN = CARD('S', np.array([25, 30]),  7,  15, 70, [pygame.image.load(os.path.join('assets', 'cards', 's_seven.png'))])
+        S_EIGHT = CARD('S', np.array([25, 30]),  8,  15, 80, [pygame.image.load(os.path.join('assets', 'cards', 's_eight.png'))])
+        S_NINE  = CARD('S', np.array([25, 30]),  9,  15, 90, [pygame.image.load(os.path.join('assets', 'cards', 's_nine.png'))])
         S_TEN   = CARD('S', np.array([25, 30]), 10,  10, 100, [pygame.image.load(os.path.join('assets', 'cards', 's_ten.png'))])
         S_J     = CARD('S', np.array([25, 30]), 11,  10, 110, [pygame.image.load(os.path.join('assets', 'cards', 's_j.png'))])
         S_Q     = CARD('S', np.array([25, 30]), 12,  10, 120, [pygame.image.load(os.path.join('assets', 'cards', 's_q.png'))])
         S_K     = CARD('S', np.array([25, 30]), 13,  10, 130, [pygame.image.load(os.path.join('assets', 'cards', 's_k.png'))])
-        C_A     = CARD('C', np.array([25, 30]),  1, 200, 140, [pygame.image.load(os.path.join('assets', 'cards', 'c_a.png'))])
-        C_TWO   = CARD('C', np.array([25, 30]),  2, 200, 150, [pygame.image.load(os.path.join('assets', 'cards', 'c_two.png'))])
-        C_THREE = CARD('C', np.array([25, 30]),  3, 200, 160, [pygame.image.load(os.path.join('assets', 'cards', 'c_three.png'))])
-        C_FOUR  = CARD('C', np.array([25, 30]),  4, 200, 170, [pygame.image.load(os.path.join('assets', 'cards', 'c_four.png'))])
-        C_FIVE  = CARD('C', np.array([25, 30]),  5, 200, 180, [pygame.image.load(os.path.join('assets', 'cards', 'c_five.png'))])
-        C_SIX   = CARD('C', np.array([25, 30]),  6, 200, 190, [pygame.image.load(os.path.join('assets', 'cards', 'c_six.png'))])
-        C_SEVEN = CARD('C', np.array([25, 30]),  7, 200, 200, [pygame.image.load(os.path.join('assets', 'cards', 'c_seven.png'))])
-        C_EIGHT = CARD('C', np.array([25, 30]),  8, 200, 210, [pygame.image.load(os.path.join('assets', 'cards', 'c_eight.png'))])
-        C_NINE  = CARD('C', np.array([25, 30]),  9, 200, 220, [pygame.image.load(os.path.join('assets', 'cards', 'c_nine.png'))])
-        C_TEN   = CARD('C', np.array([25, 30]), 10, 200, 230, [pygame.image.load(os.path.join('assets', 'cards', 'c_ten.png'))])
-        C_J     = CARD('C', np.array([25, 30]), 11, 200, 240, [pygame.image.load(os.path.join('assets', 'cards', 'c_j.png'))])
-        C_Q     = CARD('C', np.array([25, 30]), 12, 200, 250, [pygame.image.load(os.path.join('assets', 'cards', 'c_q.png'))])
-        C_K     = CARD('C', np.array([25, 30]), 13, 200, 260, [pygame.image.load(os.path.join('assets', 'cards', 'c_k.png'))])
-        H_A     = CARD('H', np.array([25, 30]),  1,  30, 270, [pygame.image.load(os.path.join('assets', 'cards', 'h_a.png'))])
-        H_TWO   = CARD('H', np.array([25, 30]),  2,  30, 280, [pygame.image.load(os.path.join('assets', 'cards', 'h_two.png'))])
-        H_THREE = CARD('H', np.array([25, 30]),  3,  30, 290, [pygame.image.load(os.path.join('assets', 'cards', 'h_three.png'))])
-        H_FOUR  = CARD('H', np.array([25, 30]),  4,  30, 300, [pygame.image.load(os.path.join('assets', 'cards', 'h_four.png'))])
-        H_FIVE  = CARD('H', np.array([25, 30]),  5,  30, 310, [pygame.image.load(os.path.join('assets', 'cards', 'h_five.png'))])
-        H_SIX   = CARD('H', np.array([25, 30]),  6,  30, 320, [pygame.image.load(os.path.join('assets', 'cards', 'h_six.png'))])
-        H_SEVEN = CARD('H', np.array([25, 30]),  7,  30, 330, [pygame.image.load(os.path.join('assets', 'cards', 'h_seven.png'))])
-        H_EIGHT = CARD('H', np.array([25, 30]),  8,  30, 340, [pygame.image.load(os.path.join('assets', 'cards', 'h_eight.png'))])
-        H_NINE  = CARD('H', np.array([25, 30]),  9,  30, 350, [pygame.image.load(os.path.join('assets', 'cards', 'h_nine.png'))])
-        H_TEN   = CARD('H', np.array([25, 30]), 10,  30, 360, [pygame.image.load(os.path.join('assets', 'cards', 'h_ten.png'))])
-        H_J     = CARD('H', np.array([25, 30]), 11,  30, 370, [pygame.image.load(os.path.join('assets', 'cards', 'h_j.png'))])
-        H_Q     = CARD('H', np.array([25, 30]), 12,  30, 380, [pygame.image.load(os.path.join('assets', 'cards', 'h_q.png'))])
-        H_K     = CARD('H', np.array([25, 30]), 13,  30, 390, [pygame.image.load(os.path.join('assets', 'cards', 'h_k.png'))])
-        D_A     = CARD('D', np.array([25, 30]),  1,  40, 400, [pygame.image.load(os.path.join('assets', 'cards', 'd_a.png'))])
-        D_TWO   = CARD('D', np.array([25, 30]),  2,  40, 410, [pygame.image.load(os.path.join('assets', 'cards', 'd_two.png'))])
-        D_THREE = CARD('D', np.array([25, 30]),  3,  40, 420, [pygame.image.load(os.path.join('assets', 'cards', 'd_three.png'))])
-        D_FOUR  = CARD('D', np.array([25, 30]),  4,  40, 430, [pygame.image.load(os.path.join('assets', 'cards', 'd_four.png'))])
-        D_FIVE  = CARD('D', np.array([25, 30]),  5,  40, 440, [pygame.image.load(os.path.join('assets', 'cards', 'd_five.png'))])
-        D_SIX   = CARD('D', np.array([25, 30]),  6,  40, 450, [pygame.image.load(os.path.join('assets', 'cards', 'd_six.png'))])
-        D_SEVEN = CARD('D', np.array([25, 30]),  7,  40, 460, [pygame.image.load(os.path.join('assets', 'cards', 'd_seven.png'))])
-        D_EIGHT = CARD('D', np.array([25, 30]),  8,  40, 470, [pygame.image.load(os.path.join('assets', 'cards', 'd_eight.png'))])
-        D_NINE  = CARD('D', np.array([25, 30]),  9,  40, 480, [pygame.image.load(os.path.join('assets', 'cards', 'd_nine.png'))])
-        D_TEN   = CARD('D', np.array([25, 30]), 10,  40, 490, [pygame.image.load(os.path.join('assets', 'cards', 'd_ten.png'))])
-        D_J     = CARD('D', np.array([25, 30]), 11,  40, 500, [pygame.image.load(os.path.join('assets', 'cards', 'd_j.png'))])
-        D_Q     = CARD('D', np.array([25, 30]), 12,  40, 510, [pygame.image.load(os.path.join('assets', 'cards', 'd_q.png'))])
-        D_K     = CARD('D', np.array([25, 30]), 13,  40, 520, [pygame.image.load(os.path.join('assets', 'cards', 'd_k.png'))])
+        C_A     = CARD('C', np.array([25, 30]),  1, 70, 30, [pygame.image.load(os.path.join('assets', 'cards', 'c_a.png'))])
+        C_TWO   = CARD('C', np.array([25, 30]),  2, 70, 40, [pygame.image.load(os.path.join('assets', 'cards', 'c_two.png'))])
+        C_THREE = CARD('C', np.array([25, 30]),  3, 70, 50, [pygame.image.load(os.path.join('assets', 'cards', 'c_three.png'))])
+        C_FOUR  = CARD('C', np.array([25, 30]),  4, 70, 60, [pygame.image.load(os.path.join('assets', 'cards', 'c_four.png'))])
+        C_FIVE  = CARD('C', np.array([25, 30]),  5, 70, 70, [pygame.image.load(os.path.join('assets', 'cards', 'c_five.png'))])
+        C_SIX   = CARD('C', np.array([25, 30]),  6, 60, 80, [pygame.image.load(os.path.join('assets', 'cards', 'c_six.png'))])
+        C_SEVEN = CARD('C', np.array([25, 30]),  7, 60, 90, [pygame.image.load(os.path.join('assets', 'cards', 'c_seven.png'))])
+        C_EIGHT = CARD('C', np.array([25, 30]),  8, 60, 100, [pygame.image.load(os.path.join('assets', 'cards', 'c_eight.png'))])
+        C_NINE  = CARD('C', np.array([25, 30]),  9, 60, 110, [pygame.image.load(os.path.join('assets', 'cards', 'c_nine.png'))])
+        C_TEN   = CARD('C', np.array([25, 30]), 10, 50, 120, [pygame.image.load(os.path.join('assets', 'cards', 'c_ten.png'))])
+        C_J     = CARD('C', np.array([25, 30]), 11, 50, 130, [pygame.image.load(os.path.join('assets', 'cards', 'c_j.png'))])
+        C_Q     = CARD('C', np.array([25, 30]), 12, 50, 140, [pygame.image.load(os.path.join('assets', 'cards', 'c_q.png'))])
+        C_K     = CARD('C', np.array([25, 30]), 13, 50, 150, [pygame.image.load(os.path.join('assets', 'cards', 'c_k.png'))])
+        H_A     = CARD('H', np.array([25, 30]),  1,  150, 270, [pygame.image.load(os.path.join('assets', 'cards', 'h_a.png'))])
+        H_TWO   = CARD('H', np.array([25, 30]),  2,  150, 280, [pygame.image.load(os.path.join('assets', 'cards', 'h_two.png'))])
+        H_THREE = CARD('H', np.array([25, 30]),  3,  150, 290, [pygame.image.load(os.path.join('assets', 'cards', 'h_three.png'))])
+        H_FOUR  = CARD('H', np.array([25, 30]),  4,  120, 300, [pygame.image.load(os.path.join('assets', 'cards', 'h_four.png'))])
+        H_FIVE  = CARD('H', np.array([25, 30]),  5,  120, 310, [pygame.image.load(os.path.join('assets', 'cards', 'h_five.png'))])
+        H_SIX   = CARD('H', np.array([25, 30]),  6,  120, 320, [pygame.image.load(os.path.join('assets', 'cards', 'h_six.png'))])
+        H_SEVEN = CARD('H', np.array([25, 30]),  7,  100, 330, [pygame.image.load(os.path.join('assets', 'cards', 'h_seven.png'))])
+        H_EIGHT = CARD('H', np.array([25, 30]),  8,  100, 340, [pygame.image.load(os.path.join('assets', 'cards', 'h_eight.png'))])
+        H_NINE  = CARD('H', np.array([25, 30]),  9,  100, 350, [pygame.image.load(os.path.join('assets', 'cards', 'h_nine.png'))])
+        H_TEN   = CARD('H', np.array([25, 30]), 10,  100, 360, [pygame.image.load(os.path.join('assets', 'cards', 'h_ten.png'))])
+        H_J     = CARD('H', np.array([25, 30]), 11,  80, 370, [pygame.image.load(os.path.join('assets', 'cards', 'h_j.png'))])
+        H_Q     = CARD('H', np.array([25, 30]), 12,  80, 380, [pygame.image.load(os.path.join('assets', 'cards', 'h_q.png'))])
+        H_K     = CARD('H', np.array([25, 30]), 13,  80, 390, [pygame.image.load(os.path.join('assets', 'cards', 'h_k.png'))])
+        D_A     = CARD('D', np.array([25, 30]),  1,  300, 400, [pygame.image.load(os.path.join('assets', 'cards', 'd_a.png'))])
+        D_TWO   = CARD('D', np.array([25, 30]),  2,  300, 410, [pygame.image.load(os.path.join('assets', 'cards', 'd_two.png'))])
+        D_THREE = CARD('D', np.array([25, 30]),  3,  300, 420, [pygame.image.load(os.path.join('assets', 'cards', 'd_three.png'))])
+        D_FOUR  = CARD('D', np.array([25, 30]),  4,  250, 430, [pygame.image.load(os.path.join('assets', 'cards', 'd_four.png'))])
+        D_FIVE  = CARD('D', np.array([25, 30]),  5,  250, 440, [pygame.image.load(os.path.join('assets', 'cards', 'd_five.png'))])
+        D_SIX   = CARD('D', np.array([25, 30]),  6,  250, 450, [pygame.image.load(os.path.join('assets', 'cards', 'd_six.png'))])
+        D_SEVEN = CARD('D', np.array([25, 30]),  7,  200, 460, [pygame.image.load(os.path.join('assets', 'cards', 'd_seven.png'))])
+        D_EIGHT = CARD('D', np.array([25, 30]),  8,  200, 470, [pygame.image.load(os.path.join('assets', 'cards', 'd_eight.png'))])
+        D_NINE  = CARD('D', np.array([25, 30]),  9,  200, 480, [pygame.image.load(os.path.join('assets', 'cards', 'd_nine.png'))])
+        D_TEN   = CARD('D', np.array([25, 30]), 10,  200, 490, [pygame.image.load(os.path.join('assets', 'cards', 'd_ten.png'))])
+        D_J     = CARD('D', np.array([25, 30]), 11,  150, 500, [pygame.image.load(os.path.join('assets', 'cards', 'd_j.png'))])
+        D_Q     = CARD('D', np.array([25, 30]), 12,  150, 510, [pygame.image.load(os.path.join('assets', 'cards', 'd_q.png'))])
+        D_K     = CARD('D', np.array([25, 30]), 13,  150, 520, [pygame.image.load(os.path.join('assets', 'cards', 'd_k.png'))])
 
         S_CARDS = [S_A, S_TWO, S_THREE, S_FOUR, S_FIVE, S_SIX, S_SEVEN, S_EIGHT, S_NINE, S_TEN, S_J, S_Q, S_K]
         C_CARDS = [C_A, C_TWO, C_THREE, C_FOUR, C_FIVE, C_SIX, C_SEVEN, C_EIGHT, C_NINE, C_TEN, C_J, C_Q, C_K]
@@ -245,10 +245,10 @@ class MAP:
     
     # Mantenha tuplas de listas em waves para não dar erro no caso em que a wave só tiver 1 inimigo!
     # Pois quando tem tupla de tupla de 1 só elemento, Python interpreta como tupla de 1 elemento.
-    WAVES = {'map1': ([ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],
-                     [ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FOUR],
-                     [ENEMY.CARD.S_FIVE, ENEMY.CARD.S_SIX, ENEMY.CARD.S_TWO],
-                     [ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],), 
+    WAVES = {'map1': ([ENEMY.CARD.S_A, ENEMY.CARD.S_A, ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],
+                     [ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO, ENEMY.CARD.S_THREE, ENEMY.CARD.S_THREE, ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FOUR],
+                     [ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FIVE, ENEMY.CARD.S_SIX, ENEMY.CARD.C_A, ENEMY.CARD.C_A, ENEMY.CARD.C_TWO, ENEMY.CARD.S_SEVEN, ENEMY.CARD.S_SEVEN],
+                     [ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.C_FOUR, ENEMY.CARD.C_FOUR, ENEMY.CARD.C_FIVE, ENEMY.CARD.C_FIVE, ENEMY.CARD.C_SIX, ENEMY.CARD.C_SIX, ENEMY.CARD.H_A, ENEMY.CARD.H_A, ENEMY.CARD.H_TWO, ENEMY.CARD.H_TWO, ENEMY.CARD.S_J],), 
              'map2': (),
              'map3': ()}
     
