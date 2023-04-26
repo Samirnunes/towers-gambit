@@ -4,7 +4,9 @@ Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação O
 
 ## Características Principais
 
-- Formato: Tower Defense.
+### Formato
+
+Tower Defense.
  
 - Temática: Xadrez/Cartas de Baralho.
 
