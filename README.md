@@ -56,7 +56,7 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 
   - O Rei sempre está presente e tenta se proteger com projéteis fracos, mas o Player não pode invocar outro.
 
-### Referências
+## Referências
 
 - Bloons Tower Defense
 
@@ -64,7 +64,7 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 
 - Jogos de Baralho
 
-### Documentação do Código
+## Documentação do Código
 
 - Baseada em docstrings no próprio código.
 
@@ -76,6 +76,6 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
     
     - **constants.py**: arquivo central contendo todas as constantes, separadas por namespaces das classes. Utilizado para alterar características essenciais do game, tais como framerate, tamanho da tela e balanceamento no geral.
     
-### Artes
+## Artes
 
 - Foram utilizados assets gratuitos da internet para compor a arte do jogo.
