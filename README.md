@@ -14,7 +14,7 @@
  
 - Mecânicas principais: upgrade das torres; poderes de soltar mobs aliados (peões), melhorar os atributos das torres, dar dano aos inimigos.
 
-- Objetivo: defender o rei no centro do tabuleiro. O rei tem uma quantidade definida de vidas.
+- Objetivo: defender o rei, que tem uma quantidade definida de vidas.
 
 ### Referências
 
@@ -32,17 +32,11 @@ Allies: https://dani-maccari.itch.io/pixel-chess, https://bzgamedev.itch.io/pixe
 
 (Knight (Cavalo); Bishop (Bispo); Tower (Torre); Pawn (Peão); Queen (Dama); King (Rei))
 
-Arrow: https://kenam0.itch.io/arrows-pack
-
 Magic Bullet: https://bdragon1727.itch.io/fire-pixel-bullet-16x16
 
 Terrain: https://grumpydiamond.itch.io/small-grass-tileset-16x16
 
 Enemies: https://treemolo.itch.io/card-decks
-
-Coin: https://gabriel-ceppas.itch.io/coin
-
-- Conjunto de Músicas:
 
 ### Links com Assets Gratuitos: 
 

@@ -85,7 +85,7 @@ class Piece(Ally):
         """
         super().update()
         self.behavior()
-        if self.health == 0:
+        if self.health <= 0:
             self.kill()
 
     def receive_damage(self, damage):
