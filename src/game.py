@@ -74,6 +74,7 @@ class Game:
         '''
         start_button = Button(self, BUTTON.STARTGAME)
         instructions_button = Button(self, BUTTON.INSTRUCTIONS)
+        credits_button = Button(self, BUTTON.CREDITS)
         running = True
         while running:
             for event in pygame.event.get():
@@ -85,12 +86,15 @@ class Game:
                         self.run()
                     if instructions_button.clicked(mouse_pos):
                         self.instructions()
+                    if credits_button.clicked(mouse_pos):
+                        self.credits()
             self.window.fill((255, 255, 255))
             title = pygame.image.load(os.path.join('assets', 'user_interface', 'title.png'))
             title = pygame.transform.scale(title, (title.get_width()/1.5, title.get_height()/1.5))
             self.window.blit(title, (GAME.WIDTH/2 - title.get_width()/2, 100))
             start_button.draw()
             instructions_button.draw()
+            credits_button.draw()
             pygame.display.update()
             
         pygame.quit()
@@ -116,4 +120,26 @@ class Game:
             self.window.blit(title, (GAME.WIDTH/2 - title.get_width()/2, 100))
             pygame.display.update()
             
-    pygame.quit()
+        pygame.quit()
+        
+    def credits(self):
+        '''
+        Credits screen.
+        '''
+        exit_button = Button(self, BUTTON.EXIT)
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+                if event.type == pygame.MOUSEBUTTONUP:
+                    mouse_pos = pygame.mouse.get_pos()
+                    if exit_button.clicked(mouse_pos):
+                        self.start_screen()
+            self.window.fill((255, 255, 255))
+            exit_button.draw()
+            title = pygame.image.load(os.path.join('assets', 'user_interface', 'credits.png'))
+            self.window.blit(title, (GAME.WIDTH/2 - title.get_width()/2, 100))
+            pygame.display.update()
+            
+        pygame.quit()

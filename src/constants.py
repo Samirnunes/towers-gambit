@@ -192,15 +192,19 @@ class BUTTON:
                                [pygame.image.load(os.path.join('assets', 'user_interface', 'button.png'))],
                                 ALLY.W_ROOK)
     
-    STARTGAME  = BUTTON(np.array([400, 75]), np.array([384, 400]),
+    STARTGAME  = BUTTON(np.array([400, 100]), np.array([384, 350]),
                         [pygame.image.load(os.path.join('assets', 'user_interface', 'start_game_button.png'))],
                         [pygame.image.load(os.path.join('assets', 'user_interface', 'start_game_button.png'))])
     
-    INSTRUCTIONS  = BUTTON(np.array([400, 75]), np.array([384, 500]),
+    INSTRUCTIONS  = BUTTON(np.array([400, 100]), np.array([384, 500]),
                     [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))],
                     [pygame.image.load(os.path.join('assets', 'user_interface', 'instructions_button.png'))])
     
-    EXIT = BUTTON(np.array([200, 50]), np.array([200, 50]),
+    CREDITS  = BUTTON(np.array([400, 100]), np.array([384, 650]),
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'credits_button.png'))],
+                    [pygame.image.load(os.path.join('assets', 'user_interface', 'credits_button.png'))])
+    
+    EXIT = BUTTON(np.array([200, 50]), np.array([100, 50]),
                     [pygame.image.load(os.path.join('assets', 'user_interface', 'exit_button.png'))],
                     [pygame.image.load(os.path.join('assets', 'user_interface', 'exit_button.png'))])
 
@@ -241,7 +245,9 @@ class MAP:
     # Mantenha tuplas de listas em waves para não dar erro no caso em que a wave só tiver 1 inimigo!
     # Pois quando tem tupla de tupla de 1 só elemento, Python interpreta como tupla de 1 elemento.
     WAVES = {'map1': ([ENEMY.CARD.S_TWO],
-                     [ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO]), 
+                     [ENEMY.CARD.S_FOUR, ENEMY.CARD.S_FOUR],
+                     [ENEMY.CARD.S_FIVE, ENEMY.CARD.S_SIX, ENEMY.CARD.S_TWO],
+                     [ENEMY.CARD.S_NINE, ENEMY.CARD.S_TEN, ENEMY.CARD.S_TWO, ENEMY.CARD.S_TWO],), 
              'map2': (),
              'map3': ()}
     
