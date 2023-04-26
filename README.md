@@ -10,8 +10,8 @@ Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação O
 
 - Objetivo: proteger o Rei do ataque das Cartas.
 
-* Fruit
-  * Apple
+* Aliados
+  * Peças
   * Orange
   * Banana
 
