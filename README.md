@@ -58,11 +58,11 @@ Samir Nunes da Silva - Desenvolvimento e Game Design - https://www.linkedin.com/
 
 ## Referências
 
-- Bloons Tower Defense
+- Bloons Tower Defense.
 
-- Jogo de Xadrez
+- Jogo de Xadrez.
 
-- Jogos de Baralho
+- Jogos de Baralho.
 
 ## Documentação do Código
 
