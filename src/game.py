@@ -11,6 +11,9 @@ from constants import GAME, MAP, BUTTON
 
 class Game:
     def __init__(self):
+        '''
+        Initializes the Game class with a Pygame window, map, entities, player, waves, and font.
+        '''
         self.window = pygame.display.set_mode((GAME.WIDTH, GAME.HEIGHT))
         self.map = Map(self, 'map1')
         self.enemies = Entities()
@@ -22,6 +25,9 @@ class Game:
         pygame.font.init()
 
     def update(self):
+        '''
+        Updates the game state by calling update() on all entities, displaying the updated user interface, and updating enemy waves.
+        '''
         self.enemies.update()
         self.allies.update()
         self.bullets.update()
@@ -30,6 +36,9 @@ class Game:
         self.waves.update() # updates enemies
 
     def draw(self):
+        '''
+        Draws the current state of the game by filling the window with black, drawing the map, entities, bullets, and user interface, and displaying the enemy waves.
+        '''
         self.window.fill((0, 0, 0))
         self.map.draw()
         self.enemies.draw()
@@ -41,7 +50,7 @@ class Game:
             
     def run(self):
         '''
-        Runs the game loop.
+        Runs the game loop, including handling events and updating and drawing the game state.
         '''
         running = True
         clock = pygame.time.Clock()
@@ -71,7 +80,7 @@ class Game:
         
     def start_screen(self):
         '''
-        Start screen with two buttons: "start game" and "instructions".
+        Displays the start screen with the "start game", "instructions", and "credits" buttons.
         '''
         start_button = Button(self, BUTTON.STARTGAME)
         instructions_button = Button(self, BUTTON.INSTRUCTIONS)
@@ -102,7 +111,7 @@ class Game:
             
     def instructions(self):
         '''
-        Instructions screen.
+        Displays the instructions screen with the "exit" button.
         '''
         exit_button = Button(self, BUTTON.EXIT)
         running = True
@@ -124,7 +133,7 @@ class Game:
         
     def credits(self):
         '''
-        Credits screen.
+        Displays the credits screen with the "exit" button.
         '''
         exit_button = Button(self, BUTTON.EXIT)
         running = True
