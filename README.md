@@ -16,9 +16,9 @@ Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação O
   * Banana
 
 - Aliados: 
- - Peças especiais: 
-  - Rei: Não morre, se algum inimigo chegar até ele, o jogador perde 1 vida.
-  - Peão: Pode dar dano no inimigo ao se sacrificar.
+  - Peças especiais: 
+    - Rei: Não morre, se algum inimigo chegar até ele, o jogador perde 1 vida.
+    - Peão: Pode dar dano no inimigo ao se sacrificar.
     
   - Peças de ataque:
    - Torre: Ataca na horizontal e vertical.
