@@ -1,4 +1,4 @@
-# TOWER'S GAMBIT
+# ♖ TOWER'S GAMBIT ♖
 
 Jogo feito como projeto do 1º bimestre da disciplina de CSI-22 (Programação Orientada a Objetos) no ITA.
 
